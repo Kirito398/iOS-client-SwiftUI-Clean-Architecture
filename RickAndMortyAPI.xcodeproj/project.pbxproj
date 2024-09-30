@@ -51,6 +51,9 @@
 		E48A30D22CAA744200B839BF /* RickAndMortyAPI */ = {
 			isa = PBXGroup;
 			children = (
+				E48A30E42CAA761F00B839BF /* data */,
+				E48A30E32CAA761700B839BF /* domain */,
+				E48A30E12CAA760300B839BF /* ui */,
 				E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */,
 				E48A30D52CAA744200B839BF /* ContentView.swift */,
 				E48A30D72CAA744400B839BF /* Assets.xcassets */,
@@ -65,6 +68,43 @@
 				E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E48A30E12CAA760300B839BF /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E48A30E52CAA763500B839BF /* view */,
+				E48A30E22CAA760E00B839BF /* viewmodels */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		E48A30E22CAA760E00B839BF /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		E48A30E32CAA761700B839BF /* domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		E48A30E42CAA761F00B839BF /* data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		E48A30E52CAA763500B839BF /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
