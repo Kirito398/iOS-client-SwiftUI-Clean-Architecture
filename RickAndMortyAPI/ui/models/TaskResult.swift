@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum TaskResult<T> {
+    case result(result: T)
+    case failure(failure: FailureError)
+}

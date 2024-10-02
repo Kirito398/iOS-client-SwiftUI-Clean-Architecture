@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct RickAndMortyInteractor {
+    private let repository: RickAndMortyRepository
+    
+    init(repository: RickAndMortyRepository) {
+        self.repository = repository
+    }
+    
+    func fetchCharacterList() async throws -> CharacterList {
+        try await repository.fetchCharacterList()
+    }
+}

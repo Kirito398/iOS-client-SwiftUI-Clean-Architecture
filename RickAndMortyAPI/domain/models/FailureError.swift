@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum Error : Error {
-    
+enum FailureError : Error, Equatable {
+    case badURL
+    case unknown(error: String)
 }

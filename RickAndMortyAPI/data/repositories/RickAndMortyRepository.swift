@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct RickAndMortyRepository {
+    private let rickAndMortyApi: RickAndMortyApi
+    
+    init(rickAndMortyApi: RickAndMortyApi) {
+        self.rickAndMortyApi = rickAndMortyApi
+    }
+    
+    func fetchCharacterList() async throws -> CharacterList {
+        try await rickAndMortyApi.fetchCharacterList().mapToDomain()
+    }
+}
