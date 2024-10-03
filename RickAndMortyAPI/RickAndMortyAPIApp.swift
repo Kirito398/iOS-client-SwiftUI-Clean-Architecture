@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct RickAndMortyAPIApp: App {
+    @State var characterListViewModel = CharacterListViewModel(
+        interactor: RickAndMortyInteractor(
+            repository: RickAndMortyRepository(
+                rickAndMortyApi: RickAndMortyApi(
+                    apiClient: HttpClient(
+                        baseUrl: "https://rickandmortyapi.com/api/"
+                    )
+                )
+            )
+        )
+    )
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CharacterListView(viewModel: characterListViewModel)
         }
     }
 }
