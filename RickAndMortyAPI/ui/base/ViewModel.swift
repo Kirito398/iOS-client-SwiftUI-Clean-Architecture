@@ -7,17 +7,14 @@
 
 import Foundation
 
-protocol ViewModel : ObservableObject {
-    var errorMessage: FailureError? { get set }
+@Observable
+class ViewModel<ViewStateType> where ViewStateType : ViewState {
     
-    func doTask<D>(_ body: @escaping () async throws -> D, callback: @escaping (D) -> Void)
-}
-
-extension ViewModel {
-    
-    func clearErrorMessage() {
-        errorMessage = nil
+    init(viewState: ViewStateType) {
+        self.viewState = viewState
     }
+    
+    private(set) var viewState: ViewStateType
     
     func doTask<D>(
         _ body: @escaping () async throws -> D,
@@ -31,14 +28,28 @@ extension ViewModel {
                     callback(result)
                 }
             } catch let failure as FailureError {
-                DispatchQueue.main.async {
-                    self.errorMessage = failure
+                DispatchQueue.main.async { [weak self] in
+                    self?.updateErrorMessage(failure: failure)
                 }
             } catch {
-                DispatchQueue.main.async {
-                    self.errorMessage = FailureError.unknown(error: error.localizedDescription)
+                DispatchQueue.main.async { [weak self] in
+                    self?.updateErrorMessage(
+                        failure: FailureError.unknown(error: error.localizedDescription)
+                    )
                 }
             }
         }
+    }
+    
+    func mutate(by mutation: (inout ViewStateType) -> Void) {
+        viewState.mutate(by: mutation)
+    }
+    
+    func updateErrorMessage(failure: FailureError?) {
+        viewState.updateErrorMessage(failure: failure)
+    }
+    
+    func clearErrorMessage() {
+        viewState.clearErrorMessage()
     }
 }

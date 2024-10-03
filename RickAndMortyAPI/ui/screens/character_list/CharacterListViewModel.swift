@@ -6,23 +6,26 @@
 //
 
 import Foundation
+import Observation
 
-
-class CharacterListViewModel : ViewModel {
+class CharacterListViewModel : ViewModel<CharacterListViewState> {
     private let interactor: RickAndMortyInteractor
     
     init(interactor: RickAndMortyInteractor) {
         self.interactor = interactor
+        super.init(viewState: CharacterListViewState())
     }
-    
-    @Published internal var errorMessage: FailureError?
-    @Published var name: String = ""
     
     func fetchCharacterList() {
         doTask(interactor.fetchCharacterList.self) { [weak self] result in
             print("Fetched data: \(result)")
-            
-            self?.name = result.list.first?.name ?? "Default"
+            self?.updateName(result: result)
+        }
+    }
+    
+    private func updateName(result: CharacterList) {
+        mutate { state in
+            state.updateName(result.list.first?.name ?? "Default")
         }
     }
     

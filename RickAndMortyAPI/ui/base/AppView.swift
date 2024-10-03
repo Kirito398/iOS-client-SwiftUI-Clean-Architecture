@@ -8,7 +8,8 @@
 import SwiftUI
 
 protocol AppView: View {
-    associatedtype ViewModelType : ViewModel
+    associatedtype ViewStateType : ViewState
+    associatedtype ViewModelType : ViewModel<ViewStateType>
     associatedtype Content : View
     
     var viewModel : ViewModelType { get set }
@@ -18,14 +19,18 @@ protocol AppView: View {
 
 extension AppView {
     
+    var viewState: ViewStateType {
+        viewModel.viewState
+    }
+    
     @MainActor
     var body: some View {
         content
             .failureAlert(
-                of: viewModel.errorMessage,
+                of: viewState.errorMessage,
                 actions: { failure in
-                    Button("OK", role: .cancel) { [weak viewModel] in
-                        viewModel?.clearErrorMessage()
+                    Button("OK", role: .cancel) {
+                        viewModel.clearErrorMessage()
                     }
                 }
             )

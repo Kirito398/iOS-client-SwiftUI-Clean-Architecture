@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct RickAndMortyAPIApp: App {
-    @StateObject var characterListViewModel = CharacterListViewModel(
+    @State var characterListViewModel = CharacterListViewModel(
         interactor: RickAndMortyInteractor(
             repository: RickAndMortyRepository(
                 rickAndMortyApi: RickAndMortyApi(

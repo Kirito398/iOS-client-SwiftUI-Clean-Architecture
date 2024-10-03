@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct CharacterListView: AppView {
-    @ObservedObject internal var viewModel: CharacterListViewModel
+    typealias ViewStateType = CharacterListViewState
+    
+    internal var viewModel: CharacterListViewModel
     
     var content: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text(viewModel.name)
+            Text(viewState.name)
             
             Button {
                 viewModel.fetchCharacterList()
