@@ -19,12 +19,12 @@ struct FailureAlert<A : View>: ViewModifier {
                 showErrorMessage = newValue != nil
             }
             .alert(
-                failure?.getTitle() ?? "Alert",
+                failure?.title ?? "Alert",
                 isPresented: $showErrorMessage,
                 presenting: failure,
                 actions: actions,
                 message: { failure in
-                    Text(failure.getMessage())
+                    Text(failure.message)
                 }
             )
     }

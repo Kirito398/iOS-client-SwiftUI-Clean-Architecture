@@ -25,6 +25,19 @@ struct CharacterListResponse : Decodable {
         let species: String
         let type: String
         let gender: String
+        let image: String
+        let origin: Origin
+        let location: Location
+        
+        struct Origin : Decodable {
+            let name: String
+            let url: String
+        }
+        
+        struct Location : Decodable {
+            let name: String
+            let url: String
+        }
     }
 }
 
@@ -34,25 +47,12 @@ extension CharacterListResponse {
         case list = "results"
     }
     
-    func mapToDomain() -> CharacterList {
+    func mapToDomain() throws -> CharacterList {
         CharacterList(
             info: self.info.mapToDomain(),
-            list: self.list.map { item in
-                item.mapToDomain()
+            list: try self.list.map { item in
+                try item.mapToDomain()
             }
-        )
-    }
-}
-
-extension CharacterListResponse.CharacterInfo {
-    func mapToDomain() -> CharacterList.CharacterInfo {
-        CharacterList.CharacterInfo(
-            id: self.id,
-            name: self.name,
-            status: self.status,
-            species: self.species,
-            type: self.type,
-            gender: self.gender
         )
     }
 }
@@ -68,4 +68,53 @@ extension CharacterListResponse.CharacterListInfo {
     }
 }
 
+extension CharacterListResponse.CharacterInfo {
+    func mapToDomain() throws -> CharacterList.CharacterInfo {
+        CharacterList.CharacterInfo(
+            id: self.id,
+            name: self.name,
+            status: self.status,
+            species: self.species,
+            type: self.type,
+            gender: self.gender,
+            image: self.image,
+            origin: try self.origin.mapToDomain(),
+            location: try self.location.mapToDomain()
+        )
+    }
+}
 
+extension CharacterListResponse.CharacterInfo.Origin {
+    func mapToDomain() throws -> CharacterList.CharacterInfo.Origin {
+        if self.url.isEmpty {
+            CharacterList.CharacterInfo.Origin.unknown
+        } else if let id = self.url.extractID() {
+            CharacterList.CharacterInfo.Origin.named(
+                id: id, name: self.name
+            )
+        } else {
+            throw FailureError.dataParsingFailure(error: "Extract Origin ID from \(self) failure!")
+        }
+    }
+}
+
+extension CharacterListResponse.CharacterInfo.Location {
+    func mapToDomain() throws -> CharacterList.CharacterInfo.Location {
+        if self.url.isEmpty {
+            CharacterList.CharacterInfo.Location.unknown
+        } else if let id = self.url.extractID() {
+            CharacterList.CharacterInfo.Location.named(
+                id: id, name: self.name
+            )
+        } else {
+            throw FailureError.dataParsingFailure(error: "Extract Origin ID from \(self) failure!")
+        }
+    }
+}
+
+extension String {
+    func extractID() -> Int? {
+        let splited: String = self.components(separatedBy: "/").last ?? ""
+        return Int(splited)
+    }
+}

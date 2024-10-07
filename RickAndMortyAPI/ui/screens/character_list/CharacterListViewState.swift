@@ -9,11 +9,11 @@ import Foundation
 
 struct CharacterListViewState : ViewState {
     internal var errorMessage: FailureError?
-    private(set) var name: String = ""
+    private(set) var characterList: [CharacterList.CharacterInfo] = []
 }
 
 extension CharacterListViewState {
-    mutating func updateName(_ name: String) {
-        self.name = name
+    mutating func updateCharacterList(_ list: [CharacterList.CharacterInfo]) {
+        self.characterList = list
     }
 }

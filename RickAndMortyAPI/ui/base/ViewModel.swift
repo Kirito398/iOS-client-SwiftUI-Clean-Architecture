@@ -28,13 +28,18 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
                     callback(result)
                 }
             } catch let failure as FailureError {
+                failure.errorMessage.errorLog()
+                
                 DispatchQueue.main.async { [weak self] in
                     self?.updateErrorMessage(failure: failure)
                 }
             } catch {
+                let failure = FailureError.unknown(error: error.localizedDescription)
+                failure.errorMessage.errorLog()
+                
                 DispatchQueue.main.async { [weak self] in
                     self?.updateErrorMessage(
-                        failure: FailureError.unknown(error: error.localizedDescription)
+                        failure: failure
                     )
                 }
             }

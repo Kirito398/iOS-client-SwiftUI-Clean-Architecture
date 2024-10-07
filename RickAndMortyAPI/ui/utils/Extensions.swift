@@ -7,23 +7,45 @@
 
 import Foundation
 
+extension CharacterList.CharacterInfo.Origin {
+    var name: String {
+        switch self {
+        case .unknown: "Unknown"
+        case .named(id: _, name: let name): name
+        }
+    }
+}
+
+extension CharacterList.CharacterInfo.Location {
+    var name: String {
+        switch self {
+        case .unknown: "Unknown"
+        case .named(id: _, name: let name): name
+        }
+    }
+}
+
 extension FailureError {
     
-    func getTitle() -> String {
+    var title: String {
         switch self {
         case .badURL:
             "Bad URL"
-        case .unknown(error: let error):
+        case .unknown(error: _):
             "Unknown Error"
+        case .dataParsingFailure(error: _):
+            "Failure"
         }
     }
     
-    func getMessage() -> String {
+    var message: String {
         switch self {
         case .badURL:
             "Unknown URL"
         case .unknown(error: let error):
             error
+        case .dataParsingFailure(error: _):
+            "Parsing data failured"
         }
     }
     

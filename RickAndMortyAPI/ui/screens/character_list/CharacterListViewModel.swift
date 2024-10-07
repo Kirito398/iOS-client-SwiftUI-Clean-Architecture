@@ -18,18 +18,17 @@ class CharacterListViewModel : ViewModel<CharacterListViewState> {
     
     func fetchCharacterList() {
         doTask(interactor.fetchCharacterList.self) { [weak self] result in
-            print("Fetched data: \(result)")
-            self?.updateName(result: result)
+            self?.updateCharacterList(list: result.list)
         }
     }
     
-    private func updateName(result: CharacterList) {
+    private func updateCharacterList(list: [CharacterList.CharacterInfo]) {
         mutate { state in
-            state.updateName(result.list.first?.name ?? "Default")
+            state.updateCharacterList(list)
         }
     }
     
     deinit {
-        print("deleted")
+        "Deleted".debugLog()
     }
 }

@@ -13,19 +13,13 @@ struct CharacterListView: AppView {
     internal var viewModel: CharacterListViewModel
     
     var content: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text(viewState.name)
-            
-            Button {
-                viewModel.fetchCharacterList()
-            } label: {
-                Text("Update")
+        ScrollView {
+            ForEach(viewState.characterList) { character in
+                CharacterInfoView(character: character)
             }
         }
         .padding()
+        .background(Color.darkGray)
         .onAppear() {
             viewModel.fetchCharacterList()
         }

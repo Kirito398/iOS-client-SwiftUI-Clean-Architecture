@@ -17,9 +17,10 @@ class HttpClient {
     func load<T : Decodable>(from pathUrl: String) async throws -> T {
         if let url = URL(string: baseUrl + pathUrl) {
             let (data, _) = try await URLSession.shared.data(from: url)
-            return try JSONDecoder().decode(T.self, from: data)
+            let result = try JSONDecoder().decode(T.self, from: data)
+            return result
         } else {
-            throw FailureError.badURL
+            throw FailureError.badURL(error: "URL: \(baseUrl + pathUrl) is incorrect!")
         }
     }
     
