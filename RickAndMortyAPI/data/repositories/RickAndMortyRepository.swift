@@ -14,7 +14,7 @@ struct RickAndMortyRepository {
         self.rickAndMortyApi = rickAndMortyApi
     }
     
-    func fetchCharacterList() async throws -> CharacterList {
-        try await rickAndMortyApi.fetchCharacterList().mapToDomain()
+    func fetchCharacterList(by page: Int) async throws -> CharacterList {
+        try await rickAndMortyApi.fetchCharacterList(by: page).mapToDomain()
     }
 }

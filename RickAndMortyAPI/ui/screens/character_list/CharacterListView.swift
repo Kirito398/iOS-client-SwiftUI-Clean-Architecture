@@ -12,17 +12,16 @@ struct CharacterListView: AppView {
     
     internal var viewModel: CharacterListViewModel
     
-    var content: some View {
-        ScrollView {
-            ForEach(viewState.characterList) { character in
-                CharacterInfoView(character: character)
-            }
+    var content: some View {        
+        PagingScrollView(items: viewState.characterList) { character in
+            CharacterInfoView(character: character)
         }
-        .padding()
+        .onNewPage {
+            viewModel.loadNextPage()
+        }
+        .padding(Dimensions.defaultPading)
         .background(Color.darkGray)
-        .onAppear() {
-            viewModel.fetchCharacterList()
-        }
+        .scrollIndicators(.hidden)
     }
 }
 

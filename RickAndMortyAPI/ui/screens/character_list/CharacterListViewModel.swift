@@ -16,15 +16,26 @@ class CharacterListViewModel : ViewModel<CharacterListViewState> {
         super.init(viewState: CharacterListViewState())
     }
     
-    func fetchCharacterList() {
-        doTask(interactor.fetchCharacterList.self) { [weak self] result in
-            self?.updateCharacterList(list: result.list)
+    func loadNextPage() {
+        let nextPageNumber = viewState.currentPage + 1
+        
+        if nextPageNumber <= viewState.pagesNumber {
+            doTask { [weak self] in
+                try await self?.interactor.fetchCharacterList(by: nextPageNumber)
+            } onResult: { [weak self] result in
+                self?.updateCharacterListWithPageNumber(by: result, with: nextPageNumber)
+            }
         }
     }
     
-    private func updateCharacterList(list: [CharacterList.CharacterInfo]) {
+    private func updateCharacterListWithPageNumber(
+        by listInfo: CharacterList,
+        with pageNumber: Int
+    ) {
         mutate { state in
-            state.updateCharacterList(list)
+            state.updateCharacterList(viewState.characterList + listInfo.list)
+            state.setCurrentPage(pageNumber)
+            state.setPagesNumber(listInfo.info.pages)
         }
     }
     

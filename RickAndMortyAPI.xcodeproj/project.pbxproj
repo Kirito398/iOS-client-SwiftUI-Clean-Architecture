@@ -29,6 +29,7 @@
 		E48A311A2CAF89F400B839BF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31192CAF89F400B839BF /* Colors.swift */; };
 		E4D269CA2CAFA08E00EACE69 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269C92CAFA08D00EACE69 /* Dimensions.swift */; };
 		E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */; };
+		E4D269D02CB3C39800EACE69 /* PagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		E48A31192CAF89F400B839BF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E4D269C92CAFA08D00EACE69 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
+		E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		E48A30E12CAA760300B839BF /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				E4D269CE2CB3BF9D00EACE69 /* views */,
 				E48A31182CAF89DC00B839BF /* theme */,
 				E48A310E2CAD237E00B839BF /* screens */,
 				E48A310B2CACDAA600B839BF /* modifiers */,
@@ -257,6 +260,14 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		E4D269CE2CB3BF9D00EACE69 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -328,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48A31172CAE3BEB00B839BF /* CharacterInfoView.swift in Sources */,
+				E4D269D02CB3C39800EACE69 /* PagingScrollView.swift in Sources */,
 				E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */,
 				E48A311A2CAF89F400B839BF /* Colors.swift in Sources */,
 				E48A30FD2CABA8BC00B839BF /* HttpClient.swift in Sources */,

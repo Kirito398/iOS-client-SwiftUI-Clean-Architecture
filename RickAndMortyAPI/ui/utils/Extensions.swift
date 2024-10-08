@@ -5,7 +5,7 @@
 //  Created by Ilgiz Sultanbekov on 02.10.2024.
 //
 
-import Foundation
+import SwiftUI
 
 extension CharacterList.CharacterInfo.Origin {
     var name: String {
