@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CharacterInfoView: View {
     
-    private var character: CharacterList.CharacterInfo
+    private var character: CharacterList.Character
     
-    init(character: CharacterList.CharacterInfo) {
+    init(character: CharacterList.Character) {
         self.character = character
     }
     
@@ -33,10 +33,10 @@ struct CharacterInfoView: View {
             
             HStack {
                 Circle()
-                    .fill(Color.lightGreen)
+                    .fill(character.status.color)
                     .frame(maxWidth: 10, maxHeight: 10)
                     
-                Text("\(character.status) - \(character.species)")
+                Text("\(character.status.toString()) - \(character.species)")
                     .font(.subheadline)
             }
             .padding(.bottom, Dimensions.defaultPading)
@@ -81,6 +81,6 @@ struct CharacterInfoView: View {
 }
 
 #Preview {
-    CharacterInfoView(character: CharacterList.CharacterInfo.sample)
+    CharacterInfoView(character: CharacterList.Character.sample)
         .previewLayout(.fixed(width: 400, height: 60))
 }
