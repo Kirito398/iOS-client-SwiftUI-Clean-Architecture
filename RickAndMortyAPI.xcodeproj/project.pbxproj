@@ -33,6 +33,8 @@
 		E4D269D32CB5194D00EACE69 /* CharacterDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D22CB5194D00EACE69 /* CharacterDetailScreen.swift */; };
 		E4D269D62CB51F0100EACE69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D52CB51F0100EACE69 /* Router.swift */; };
 		E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D72CB51F7500EACE69 /* Destination.swift */; };
+		E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */; };
+		E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		E4D269D22CB5194D00EACE69 /* CharacterDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailScreen.swift; sourceTree = "<group>"; };
 		E4D269D52CB51F0100EACE69 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E4D269D72CB51F7500EACE69 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				E4D269D22CB5194D00EACE69 /* CharacterDetailScreen.swift */,
+				E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */,
+				E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */,
 			);
 			path = character_detail;
 			sourceTree = "<group>";
@@ -370,11 +376,13 @@
 				E48A30FD2CABA8BC00B839BF /* HttpClient.swift in Sources */,
 				E48A310D2CACDAC800B839BF /* ErrorAlert.swift in Sources */,
 				E48A31072CACC8C900B839BF /* CharacterListScreen.swift in Sources */,
+				E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */,
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
 				E48A30EF2CAB77D500B839BF /* CharacterListViewModel.swift in Sources */,
 				E48A30F92CAB82EF00B839BF /* RickAndMortyApi.swift in Sources */,
 				E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */,
 				E48A30F22CAB80DD00B839BF /* RickAndMortyInteractor.swift in Sources */,
+				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
 				E48A30F72CAB81E200B839BF /* RickAndMortyRepository.swift in Sources */,
 				E48A31052CACC7F100B839BF /* Extensions.swift in Sources */,
 				E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 struct CharacterListScreen: AppView {
     typealias ViewStateType = CharacterListScreenState
     
-    internal var viewModel: CharacterListViewModel
+    @State internal var viewModel: CharacterListViewModel
     
     var content: some View {
         PagingScrollView(items: viewState.characterList) { character in

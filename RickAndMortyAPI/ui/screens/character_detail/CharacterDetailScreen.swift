@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct CharacterDetailScreen : View {
-    var characterId: Int
+struct CharacterDetailScreen : AppView {
+    typealias ViewStateType = CharacterDetailViewState
+    @State internal var viewModel: CharacterDetailViewModel
     
-    var body: some View {
-        Text("Name: \(characterId)")
+    var content: some View {
+        Text("Name: \(viewState.characterId)")
     }
 }
