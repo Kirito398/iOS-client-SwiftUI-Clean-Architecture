@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct CharacterListView: AppView {
-    typealias ViewStateType = CharacterListViewState
+struct CharacterListScreen: AppView {
+    typealias ViewStateType = CharacterListScreenState
     
     internal var viewModel: CharacterListViewModel
     
-    var content: some View {        
+    var content: some View {
         PagingScrollView(items: viewState.characterList) { character in
-            CharacterInfoView(character: character)
+            NavigationLink(value: Destination.CharacterDetail(characterId: character.id)) {
+                CharacterInfoView(character: character)
+            }
         }
         .onNewPage {
             viewModel.loadNextPage()

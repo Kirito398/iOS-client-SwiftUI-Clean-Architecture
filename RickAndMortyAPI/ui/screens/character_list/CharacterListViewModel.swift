@@ -8,12 +8,12 @@
 import Foundation
 import Observation
 
-class CharacterListViewModel : ViewModel<CharacterListViewState> {
+class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     private let interactor: RickAndMortyInteractor
     
     init(interactor: RickAndMortyInteractor) {
         self.interactor = interactor
-        super.init(viewState: CharacterListViewState())
+        super.init(viewState: CharacterListScreenState())
     }
     
     func loadNextPage() {

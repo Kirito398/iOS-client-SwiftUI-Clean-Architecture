@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct RickAndMortyAPIApp: App {
+    @ObservedObject var router = Router()
+    
     @State var characterListViewModel = CharacterListViewModel(
         interactor: RickAndMortyInteractor(
             repository: RickAndMortyRepository(
@@ -23,7 +25,15 @@ struct RickAndMortyAPIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CharacterListView(viewModel: characterListViewModel)
+            NavigationStack(path: $router.navPath) {
+                CharacterListScreen(viewModel: characterListViewModel)
+                    .navigationDestination(for: Destination.self) { destination in
+                        switch destination {
+                        case .CharacterDetail(let id): CharacterDetailScreen(characterId: id)
+                        }
+                    }
+            }
         }
+        .environmentObject(router)
     }
 }

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CharacterListViewState : ViewState {
+struct CharacterListScreenState : ViewState {
     internal var errorMessage: FailureError?
     private(set) var characterList: [CharacterList.Character] = []
     private(set) var currentPage: Int = 0
     private(set) var pagesNumber: Int = 1
 }
 
-extension CharacterListViewState {
+extension CharacterListScreenState {
     mutating func updateCharacterList(_ list: [CharacterList.Character]) {
         self.characterList = list
     }
