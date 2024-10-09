@@ -5,25 +5,65 @@
 //  Created by Ilgiz Sultanbekov on 02.10.2024.
 //
 
-import Foundation
+import SwiftUI
 
-extension FailureError {
-    
-    func getTitle() -> String {
+extension CharacterList.Character.Status {
+    var color: Color {
         switch self {
-        case .badURL:
-            "Bad URL"
-        case .unknown(error: let error):
-            "Unknown Error"
+        case .unknown: Color.lightGray
+        case .alive: Color.lightGreen
+        case .dead: Color.red
         }
     }
     
-    func getMessage() -> String {
+    func toString() -> String {
+        switch self {
+        case .unknown: "Unknown"
+        case .alive: "Alive"
+        case .dead: "Dead"
+        }
+    }
+}
+
+extension CharacterList.Character.Origin {
+    var name: String {
+        switch self {
+        case .unknown: "Unknown"
+        case .named(id: _, name: let name): name
+        }
+    }
+}
+
+extension CharacterList.Character.Location {
+    var name: String {
+        switch self {
+        case .unknown: "Unknown"
+        case .named(id: _, name: let name): name
+        }
+    }
+}
+
+extension FailureError {
+    
+    var title: String {
+        switch self {
+        case .badURL:
+            "Bad URL"
+        case .unknown(error: _):
+            "Unknown Error"
+        case .dataParsingFailure(error: _):
+            "Failure"
+        }
+    }
+    
+    var message: String {
         switch self {
         case .badURL:
             "Unknown URL"
         case .unknown(error: let error):
             error
+        case .dataParsingFailure(error: _):
+            "Parsing data failured"
         }
     }
     

@@ -8,28 +8,38 @@
 import Foundation
 import Observation
 
-class CharacterListViewModel : ViewModel<CharacterListViewState> {
+class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     private let interactor: RickAndMortyInteractor
     
     init(interactor: RickAndMortyInteractor) {
         self.interactor = interactor
-        super.init(viewState: CharacterListViewState())
+        super.init(viewState: CharacterListScreenState())
     }
     
-    func fetchCharacterList() {
-        doTask(interactor.fetchCharacterList.self) { [weak self] result in
-            print("Fetched data: \(result)")
-            self?.updateName(result: result)
+    func loadNextPage() {
+        let nextPageNumber = viewState.currentPage + 1
+        
+        if nextPageNumber <= viewState.pagesNumber {
+            doTask { [weak self] in
+                try await self?.interactor.fetchCharacterList(by: nextPageNumber)
+            } onResult: { [weak self] result in
+                self?.updateCharacterListWithPageNumber(by: result, with: nextPageNumber)
+            }
         }
     }
     
-    private func updateName(result: CharacterList) {
+    private func updateCharacterListWithPageNumber(
+        by listInfo: CharacterList,
+        with pageNumber: Int
+    ) {
         mutate { state in
-            state.updateName(result.list.first?.name ?? "Default")
+            state.updateCharacterList(viewState.characterList + listInfo.list)
+            state.setCurrentPage(pageNumber)
+            state.setPagesNumber(listInfo.info.pages)
         }
     }
     
     deinit {
-        print("deleted")
+        "Deleted".debugLog()
     }
 }

@@ -17,24 +17,29 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
     private(set) var viewState: ViewStateType
     
     func doTask<D>(
-        _ body: @escaping () async throws -> D,
-        callback: @escaping (D) -> Void
+        _ body: @escaping () async throws -> D?,
+        onResult callback: @escaping (D) -> Void
     ) {
         Task {
             do {
-                let result = try await body()
-                
-                DispatchQueue.main.async {
-                    callback(result)
+                if let result = try await body() {
+                    DispatchQueue.main.async {
+                        callback(result)
+                    }
                 }
             } catch let failure as FailureError {
+                failure.errorMessage.errorLog()
+                
                 DispatchQueue.main.async { [weak self] in
                     self?.updateErrorMessage(failure: failure)
                 }
             } catch {
+                let failure = FailureError.unknown(error: error.localizedDescription)
+                failure.errorMessage.errorLog()
+                
                 DispatchQueue.main.async { [weak self] in
                     self?.updateErrorMessage(
-                        failure: FailureError.unknown(error: error.localizedDescription)
+                        failure: failure
                     )
                 }
             }
