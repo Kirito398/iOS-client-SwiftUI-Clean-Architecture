@@ -9,28 +9,25 @@ import SwiftUI
 
 @main
 struct RickAndMortyAPIApp: App {
-    private let rickAndMortyInteractor = RickAndMortyInteractor(
-        repository: RickAndMortyRepository(
-            rickAndMortyApi: RickAndMortyApi(
-                apiClient: HttpClient(
-                    baseUrl: "https://rickandmortyapi.com/api/"
-                )
-            )
-        )
-    )
+    @ObservedObject var router: Router
+    private var rootComponent: RootComponent
     
-    @ObservedObject var router = Router()
+    init() {
+        registerProviderFactories()
+        rootComponent = RootComponent()
+        router = rootComponent.uiComponent.navigationRouter
+    }
     
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.navPath) {
-                CharacterListScreen(viewModel: CharacterListViewModel(interactor: rickAndMortyInteractor))
+                CharacterListScreen(viewModel: rootComponent.uiComponent.characterListViewModel)
                     .navigationDestination(for: Destination.self) { destination in
                         switch destination {
                         case .CharacterDetail(let id): 
                             CharacterDetailScreen(
                                 viewModel: CharacterDetailViewModel(
-                                    interactor: rickAndMortyInteractor,
+                                    interactor: rootComponent.domainComponent.rickAndMortyInteractor,
                                     characterId: id
                                 )
                             )
