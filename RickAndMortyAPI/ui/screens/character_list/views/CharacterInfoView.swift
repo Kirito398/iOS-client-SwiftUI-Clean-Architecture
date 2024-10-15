@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CharacterInfoView: View {
     
-    private var character: CharacterList.Character
+    private var character: CharacterDetail
     
-    init(character: CharacterList.Character) {
+    init(character: CharacterDetail) {
         self.character = character
     }
     
@@ -80,7 +80,7 @@ struct CharacterInfoView: View {
     }
 }
 
-#Preview {
-    CharacterInfoView(character: CharacterList.Character.sample)
-        .previewLayout(.fixed(width: 400, height: 60))
-}
+//#Preview {
+//    CharacterInfoView(character: CharacterDetail.sample)
+//        .previewLayout(.fixed(width: 400, height: 60))
+//}

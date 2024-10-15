@@ -10,4 +10,11 @@ import Foundation
 struct CharacterDetailViewState : ViewState {
     internal var errorMessage: FailureError?
     private(set) var characterId: Int
+    private(set) var characterDetail: CharacterDetail?
+}
+
+extension CharacterDetailViewState {
+    mutating func setCharacterDetail(by detail: CharacterDetail) {
+        characterDetail = detail
+    }
 }

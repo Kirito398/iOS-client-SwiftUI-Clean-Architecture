@@ -17,4 +17,8 @@ struct RickAndMortyRepository {
     func fetchCharacterList(by page: Int) async throws -> CharacterList {
         try await rickAndMortyApi.fetchCharacterList(by: page).mapToDomain()
     }
+    
+    func fetchCharacterDetail(by id: Int) async throws -> CharacterDetail {
+        try await rickAndMortyApi.fetchCharacterDetail(by: id).mapToDomain()
+    }
 }

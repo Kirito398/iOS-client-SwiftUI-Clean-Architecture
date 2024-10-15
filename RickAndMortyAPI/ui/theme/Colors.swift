@@ -11,7 +11,7 @@ extension Color {
     static let darkGray = Color.fromRGB(red: 39, green: 43, blue: 51)
     static let customGray = Color.fromRGB(red: 60, green: 62, blue: 68)
     static let lightGray = Color.fromRGB(red: 158, green: 158, blue: 158)
-    static let orange = Color.fromRGB(red: 255, green: 152, blue: 0)
+    static let lightOrange = Color.fromRGB(red: 255, green: 152, blue: 0)
     static let red = Color.fromRGB(red: 214, green: 61, blue: 46)
     static let lightGreen = Color.fromRGB(red: 85, green: 204, blue: 68)
     

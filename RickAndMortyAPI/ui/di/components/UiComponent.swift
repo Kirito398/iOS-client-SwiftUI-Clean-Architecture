@@ -9,8 +9,8 @@ import Foundation
 import NeedleFoundation
 
 protocol UiComponentProtocol {
-    var characterListViewModel: CharacterListViewModel { get }
     var navigationRouter: Router { get }
+    var characterListViewModel: CharacterListViewModel { get }
 }
 
 protocol UiComponentDependency : Dependency {

@@ -18,6 +18,10 @@ struct RickAndMortyApi {
         try await apiClient.load(from: "character/?page=\(page)")
     }
     
+    func fetchCharacterDetail(by id: Int) async throws -> CharacterListResponse.Character {
+        try await apiClient.load(from: "character/\(id)")
+    }
+    
 //    func fetchCharacterList() {
 //        apiClient.loadAsync(CharacterListResponse.self, from: "character") { result in
 //            

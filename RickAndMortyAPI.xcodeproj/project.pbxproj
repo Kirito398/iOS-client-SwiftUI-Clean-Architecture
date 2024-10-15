@@ -33,6 +33,7 @@
 		E4A2C97E2CB8C6EB00C7D29A /* UiComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C97D2CB8C6EB00C7D29A /* UiComponent.swift */; };
 		E4A2C9802CB8C6F800C7D29A /* DomainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C97F2CB8C6F800C7D29A /* DomainComponent.swift */; };
 		E4A2C9822CB8CA4700C7D29A /* DataComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C9812CB8CA4700C7D29A /* DataComponent.swift */; };
+		E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */; };
 		E4D269CA2CAFA08E00EACE69 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269C92CAFA08D00EACE69 /* Dimensions.swift */; };
 		E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */; };
 		E4D269D02CB3C39800EACE69 /* PagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */; };
@@ -70,6 +71,7 @@
 		E4A2C97D2CB8C6EB00C7D29A /* UiComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiComponent.swift; sourceTree = "<group>"; };
 		E4A2C97F2CB8C6F800C7D29A /* DomainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainComponent.swift; sourceTree = "<group>"; };
 		E4A2C9812CB8CA4700C7D29A /* DataComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataComponent.swift; sourceTree = "<group>"; };
+		E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		E4D269C92CAFA08D00EACE69 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
 		E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				E48A30F42CAB811D00B839BF /* CharacterList.swift */,
 				E48A30FA2CAB8AA900B839BF /* FailureError.swift */,
+				E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
 				E48A30F72CAB81E200B839BF /* RickAndMortyRepository.swift in Sources */,
 				E48A31052CACC7F100B839BF /* Extensions.swift in Sources */,
+				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
 				E4A2C97C2CB8C4FE00C7D29A /* NeedleGenerated.swift in Sources */,
 				E4A2C9792CB8C2E100C7D29A /* RootComponent.swift in Sources */,
 				E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */,

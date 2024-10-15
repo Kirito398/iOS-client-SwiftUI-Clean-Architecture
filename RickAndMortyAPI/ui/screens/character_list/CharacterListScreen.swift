@@ -11,6 +11,7 @@ struct CharacterListScreen: AppView {
     typealias ViewStateType = CharacterListScreenState
     
     @State internal var viewModel: CharacterListViewModel
+    @EnvironmentObject var router: Router
     
     var content: some View {
         PagingScrollView(items: viewState.characterList) { character in
@@ -27,6 +28,8 @@ struct CharacterListScreen: AppView {
     }
 }
 
-//#Preview {
-//    CharacterListView()
-//}
+#Preview {
+    CharacterListScreen(
+        viewModel: RootComponent().uiComponent.characterListViewModel
+    )
+}

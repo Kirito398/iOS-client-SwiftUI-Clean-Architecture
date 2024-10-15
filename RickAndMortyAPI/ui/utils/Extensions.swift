@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CharacterList.Character.Status {
+extension CharacterDetail.Status {
     var color: Color {
         switch self {
         case .unknown: Color.lightGray
@@ -25,7 +25,7 @@ extension CharacterList.Character.Status {
     }
 }
 
-extension CharacterList.Character.Origin {
+extension CharacterDetail.Origin {
     var name: String {
         switch self {
         case .unknown: "Unknown"
@@ -34,7 +34,7 @@ extension CharacterList.Character.Origin {
     }
 }
 
-extension CharacterList.Character.Location {
+extension CharacterDetail.Location {
     var name: String {
         switch self {
         case .unknown: "Unknown"

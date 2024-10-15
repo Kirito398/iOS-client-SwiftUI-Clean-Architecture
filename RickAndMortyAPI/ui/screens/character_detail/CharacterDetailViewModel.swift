@@ -14,4 +14,22 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
         self.interactor = interactor
         super.init(viewState: CharacterDetailViewState(characterId: characterId))
     }
+    
+    func fetchCharacterDetail() {
+        doTask { [weak self] in
+            if let characterId = self?.viewState.characterId {
+                try await self?.interactor.fetchCharacterDetail(by:characterId)
+            } else {
+                nil
+            }
+        } onResult: { [weak self] detail in
+            self?.updateCharacterDetail(by: detail)
+        }
+    }
+    
+    private func updateCharacterDetail(by detail: CharacterDetail) {
+        mutate { state in
+            state.setCharacterDetail(by: detail)
+        }
+    }
 }
