@@ -15,6 +15,11 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
         super.init(viewState: CharacterDetailViewState(characterId: characterId))
     }
     
+    init(interactor: RickAndMortyInteractor, characterDetail: CharacterDetail) {
+        self.interactor = interactor
+        super.init(viewState: CharacterDetailViewState(characterId: characterDetail.id, characterDetail: characterDetail))
+    }
+    
     func fetchCharacterDetail() {
         doTask { [weak self] in
             if let characterId = self?.viewState.characterId {

@@ -10,9 +10,11 @@ import SwiftUI
 struct CharacterInfoView: View {
     
     private var character: CharacterDetail
+    private var avatarNamespace: Namespace.ID?
     
-    init(character: CharacterDetail) {
+    init(character: CharacterDetail, avatarNamespace: Namespace.ID? = nil) {
         self.character = character
+        self.avatarNamespace = avatarNamespace
     }
     
     var body: some View {
@@ -28,6 +30,10 @@ struct CharacterInfoView: View {
     private var characterInfo: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(character.name)
+                .matchedGeometryEffectIfNotNil(
+                    id: "name_\(character.id)",
+                    namespace: avatarNamespace
+                )
                 .font(.title3)
                 .fontWeight(.bold)
             
@@ -76,11 +82,20 @@ struct CharacterInfoView: View {
                 }
             }
         }
+        .matchedGeometryEffectIfNotNil(
+            id: character.id,
+            namespace: avatarNamespace
+        )
+        .transition(.asymmetric(insertion: .identity, removal: .identity))
         .frame(width: 130, height: 130)
     }
 }
 
-//#Preview {
-//    CharacterInfoView(character: CharacterDetail.sample)
-//        .previewLayout(.fixed(width: 400, height: 60))
-//}
+#Preview {
+    CharacterInfoView(character: CharacterDetail.sample)
+        .previewLayout(.fixed(width: 400, height: 60))
+}
+
+extension View {
+    
+}

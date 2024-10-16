@@ -11,12 +11,28 @@ struct CharacterListScreen: AppView {
     typealias ViewStateType = CharacterListScreenState
     
     @State internal var viewModel: CharacterListViewModel
-    @EnvironmentObject var router: Router
+    
+    private var avatarNamespace: Namespace.ID?
+    private var onItemTapListener: ((CharacterDetail) -> Void)?
+    
+    init(
+        viewModel: CharacterListViewModel,
+        avatarNamespace: Namespace.ID? = nil,
+        onItemTapListener: ((CharacterDetail) -> Void)? = nil
+    ) {
+        self.viewModel = viewModel
+        self.avatarNamespace = avatarNamespace
+        self.onItemTapListener = onItemTapListener
+    }
     
     var content: some View {
         PagingScrollView(items: viewState.characterList) { character in
-            NavigationLink(value: Destination.CharacterDetail(characterId: character.id)) {
-                CharacterInfoView(character: character)
+            CharacterInfoView(
+                character: character,
+                avatarNamespace: avatarNamespace
+            )
+            .onTapGesture {
+                onItemTapListener?.self(character)
             }
         }
         .onNewPage {

@@ -11,10 +11,20 @@ struct CharacterDetailScreen : AppView {
     typealias ViewStateType = CharacterDetailViewState
     @State internal var viewModel: CharacterDetailViewModel
     
+    private var avatarNamespace: Namespace.ID?
+    
+    init(viewModel: CharacterDetailViewModel, avatarNamespace: Namespace.ID? = nil) {
+        self.viewModel = viewModel
+        self.avatarNamespace = avatarNamespace
+    }
+    
     var content: some View {
         HStack {
             if let characterDetail = viewState.characterDetail {
-                CharacterDetailView(characterDetail: characterDetail)
+                CharacterDetailView(
+                    characterDetail: characterDetail,
+                    avatarNamespace: avatarNamespace
+                )
             } else {
                 ProgressView()
                     .foregroundColor(Color.lightOrange)
@@ -32,14 +42,25 @@ struct CharacterDetailScreen : AppView {
     }
 }
 
-struct CharacterDetailView : View {
+private struct CharacterDetailView : View {
     var characterDetail: CharacterDetail
+    var avatarNamespace: Namespace.ID?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            characterAvatar
-            
-            Text("Name: \(characterDetail.name)")
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                characterAvatar
+                    .frame(
+                        width: geometry.size.width,
+                        height: geometry.size.width
+                    )
+                
+                Text("Name: \(characterDetail.name)")
+                    .matchedGeometryEffectIfNotNil(
+                        id: "name_\(characterDetail.id)",
+                        namespace: avatarNamespace
+                    )
+            }
         }
     }
     
@@ -48,9 +69,14 @@ struct CharacterDetailView : View {
             if let image: Image = phase.image {
                 image
                     .resizable(resizingMode: .stretch)
-                    .aspectRatio(contentMode: .fit)
+                    //.aspectRatio(contentMode: .fit)
             }
         }
+        .matchedGeometryEffectIfNotNil(
+            id: characterDetail.id,
+            namespace: avatarNamespace
+        )
+        .transition(.asymmetric(insertion: .identity, removal: .identity))
     }
 }
 

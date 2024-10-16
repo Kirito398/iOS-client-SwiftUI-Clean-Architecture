@@ -11,6 +11,10 @@ import NeedleFoundation
 protocol UiComponentProtocol {
     var navigationRouter: Router { get }
     var characterListViewModel: CharacterListViewModel { get }
+    var characterMainViewModel: CharacterMainViewModel { get }
+    
+    func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel
+    func getCharacterDetailViewModel(characterDetail: CharacterDetail) -> CharacterDetailViewModel
 }
 
 protocol UiComponentDependency : Dependency {
@@ -18,12 +22,23 @@ protocol UiComponentDependency : Dependency {
 }
 
 final class UiComponent : Component<UiComponentDependency>, UiComponentProtocol {
-    
     var navigationRouter: Router {
         Router()
     }
     
     var characterListViewModel: CharacterListViewModel {
         CharacterListViewModel(interactor: dependency.rickAndMortyInteractor)
+    }
+    
+    var characterMainViewModel: CharacterMainViewModel {
+        CharacterMainViewModel()
+    }
+    
+    func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel {
+        CharacterDetailViewModel(interactor: dependency.rickAndMortyInteractor, characterId: characterId)
+    }
+    
+    func getCharacterDetailViewModel(characterDetail: CharacterDetail) -> CharacterDetailViewModel {
+        CharacterDetailViewModel(interactor: dependency.rickAndMortyInteractor, characterDetail: characterDetail)
     }
 }
