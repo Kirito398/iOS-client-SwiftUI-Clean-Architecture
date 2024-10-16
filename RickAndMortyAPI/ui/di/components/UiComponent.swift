@@ -14,7 +14,7 @@ protocol UiComponentProtocol {
     var characterMainViewModel: CharacterMainViewModel { get }
     
     func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel
-    func getCharacterDetailViewModel(characterDetail: CharacterDetail) -> CharacterDetailViewModel
+    func getCharacterDetailViewModel(characterDetail: CharacterDetailUI) -> CharacterDetailViewModel
 }
 
 protocol UiComponentDependency : Dependency {
@@ -38,7 +38,7 @@ final class UiComponent : Component<UiComponentDependency>, UiComponentProtocol 
         CharacterDetailViewModel(interactor: dependency.rickAndMortyInteractor, characterId: characterId)
     }
     
-    func getCharacterDetailViewModel(characterDetail: CharacterDetail) -> CharacterDetailViewModel {
+    func getCharacterDetailViewModel(characterDetail: CharacterDetailUI) -> CharacterDetailViewModel {
         CharacterDetailViewModel(interactor: dependency.rickAndMortyInteractor, characterDetail: characterDetail)
     }
 }

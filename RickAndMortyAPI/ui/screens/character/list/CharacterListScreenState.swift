@@ -9,13 +9,13 @@ import Foundation
 
 struct CharacterListScreenState : ViewState {
     internal var errorMessage: FailureError?
-    private(set) var characterList: [CharacterDetail] = []
+    private(set) var characterList: [CharacterDetailUI] = []
     private(set) var currentPage: Int = 0
     private(set) var pagesNumber: Int = 1
 }
 
 extension CharacterListScreenState {
-    mutating func updateCharacterList(_ list: [CharacterDetail]) {
+    mutating func updateCharacterList(_ list: [CharacterDetailUI]) {
         self.characterList = list
     }
     

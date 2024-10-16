@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CharacterInfoView: View {
     
-    private var character: CharacterDetail
+    private var character: CharacterDetailUI
     private var avatarNamespace: Namespace.ID?
     
-    init(character: CharacterDetail, avatarNamespace: Namespace.ID? = nil) {
+    init(character: CharacterDetailUI, avatarNamespace: Namespace.ID? = nil) {
         self.character = character
         self.avatarNamespace = avatarNamespace
     }
@@ -92,7 +92,7 @@ struct CharacterInfoView: View {
 }
 
 #Preview {
-    CharacterInfoView(character: CharacterDetail.sample)
+    CharacterInfoView(character: CharacterDetailUI.sample)
         .previewLayout(.fixed(width: 400, height: 60))
 }
 

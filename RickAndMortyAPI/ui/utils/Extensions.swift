@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-extension CharacterDetail.Status {
-    var color: Color {
-        switch self {
-        case .unknown: Color.lightGray
-        case .alive: Color.lightGreen
-        case .dead: Color.red
-        }
-    }
-    
-    func toString() -> String {
-        switch self {
-        case .unknown: "Unknown"
-        case .alive: "Alive"
-        case .dead: "Dead"
-        }
-    }
-}
-
-extension CharacterDetail.Origin {
-    var name: String {
-        switch self {
-        case .unknown: "Unknown"
-        case .named(id: _, name: let name): name
-        }
-    }
-}
-
-extension CharacterDetail.Location {
-    var name: String {
-        switch self {
-        case .unknown: "Unknown"
-        case .named(id: _, name: let name): name
-        }
-    }
-}
-
 extension FailureError {
     
     var title: String {

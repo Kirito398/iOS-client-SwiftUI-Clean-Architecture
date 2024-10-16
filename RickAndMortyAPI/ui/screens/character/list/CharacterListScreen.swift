@@ -13,12 +13,12 @@ struct CharacterListScreen: AppView {
     @State internal var viewModel: CharacterListViewModel
     
     private var avatarNamespace: Namespace.ID?
-    private var onItemTapListener: ((CharacterDetail) -> Void)?
+    private var onItemTapListener: ((CharacterDetailUI) -> Void)?
     
     init(
         viewModel: CharacterListViewModel,
         avatarNamespace: Namespace.ID? = nil,
-        onItemTapListener: ((CharacterDetail) -> Void)? = nil
+        onItemTapListener: ((CharacterDetailUI) -> Void)? = nil
     ) {
         self.viewModel = viewModel
         self.avatarNamespace = avatarNamespace

@@ -21,7 +21,7 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
         
         if nextPageNumber <= viewState.pagesNumber {
             doTask { [weak self] in
-                try await self?.interactor.fetchCharacterList(by: nextPageNumber)
+                try await self?.interactor.fetchCharacterList(by: nextPageNumber).mapToUIModel()
             } onResult: { [weak self] result in
                 self?.updateCharacterListWithPageNumber(by: result, with: nextPageNumber)
             }
@@ -29,7 +29,7 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     }
     
     private func updateCharacterListWithPageNumber(
-        by listInfo: CharacterList,
+        by listInfo: CharacterListUI,
         with pageNumber: Int
     ) {
         mutate { state in

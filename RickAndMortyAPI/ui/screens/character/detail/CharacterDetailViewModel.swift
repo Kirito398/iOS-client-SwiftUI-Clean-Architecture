@@ -15,7 +15,7 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
         super.init(viewState: CharacterDetailViewState(characterId: characterId))
     }
     
-    init(interactor: RickAndMortyInteractor, characterDetail: CharacterDetail) {
+    init(interactor: RickAndMortyInteractor, characterDetail: CharacterDetailUI) {
         self.interactor = interactor
         super.init(viewState: CharacterDetailViewState(characterId: characterDetail.id, characterDetail: characterDetail))
     }
@@ -23,7 +23,7 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
     func fetchCharacterDetail() {
         doTask { [weak self] in
             if let characterId = self?.viewState.characterId {
-                try await self?.interactor.fetchCharacterDetail(by:characterId)
+                try await self?.interactor.fetchCharacterDetail(by:characterId).mapToUIModel()
             } else {
                 nil
             }
@@ -32,7 +32,7 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
         }
     }
     
-    private func updateCharacterDetail(by detail: CharacterDetail) {
+    private func updateCharacterDetail(by detail: CharacterDetailUI) {
         mutate { state in
             state.setCharacterDetail(by: detail)
         }

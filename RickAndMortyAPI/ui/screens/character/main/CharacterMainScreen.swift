@@ -57,7 +57,7 @@ struct CharacterMainScreen: AppView {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    private func showCharacterDetail(by characterDetail: CharacterDetail) {
+    private func showCharacterDetail(by characterDetail: CharacterDetailUI) {
         withAnimation(.linear(duration: 5)) {
             viewModel.showCharacterDetail(by: characterDetail)
         }
@@ -79,7 +79,7 @@ class CharacterMainViewModel : ViewModel<CharacterMainScreenState> {
         super.init(viewState: CharacterMainScreenState())
     }
     
-    func showCharacterDetail(by characterDetail: CharacterDetail) {
+    func showCharacterDetail(by characterDetail: CharacterDetailUI) {
         mutate { viewState in
             viewState.setCurrentScreen(
                 screenType: CharacterMainScreenState.ScreenType.Detail(
@@ -104,7 +104,7 @@ struct CharacterMainScreenState : ViewState {
     
     enum ScreenType {
         case List
-        case Detail(characterDetail: CharacterDetail)
+        case Detail(characterDetail: CharacterDetailUI)
         
         func isDetail() -> Bool {
             switch self {

@@ -43,7 +43,7 @@ struct CharacterDetailScreen : AppView {
 }
 
 private struct CharacterDetailView : View {
-    var characterDetail: CharacterDetail
+    var characterDetail: CharacterDetailUI
     var avatarNamespace: Namespace.ID?
     
     var body: some View {

@@ -1,13 +1,13 @@
 //
-//  CharacterDetail.swift
+//  CharacterDetailUI.swift
 //  RickAndMortyAPI
 //
-//  Created by Ilgiz Sultanbekov on 11.10.2024.
+//  Created by Ilgiz Sultanbekov on 16.10.2024.
 //
 
-import Foundation
+import SwiftUI
 
-struct CharacterDetail : Identifiable {
+struct CharacterDetailUI : Identifiable {
     let id: Int
     let name: String
     let status: Status
