@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterInfoView: View {
+struct CharacterInfoItemView: View {
     
     private var character: CharacterDetailUI
     private var avatarNamespace: Namespace.ID?
@@ -23,6 +23,7 @@ struct CharacterInfoView: View {
             characterInfo
             Spacer()
         }
+        .frame(maxWidth: .infinity)
         .background(Color.customGray)
         .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
     }
@@ -67,32 +68,18 @@ struct CharacterInfoView: View {
     }
     
     private var characterAvatar: some View {
-        ZStack {
-            AsyncImage(url: URL(
-                string: character.image)
-            ) { phase in
-                if let image: Image = phase.image {
-                    image
-                        .resizable(resizingMode: .stretch)
-//                        .frame(
-//                            minWidth: 130, maxWidth: 160,
-//                            minHeight: 130, maxHeight: 160
-//                        )
-                        //.aspectRatio(contentMode: .fit)
-                }
-            }
-        }
-        .matchedGeometryEffectIfNotNil(
-            id: character.id,
-            namespace: avatarNamespace
-        )
-        .transition(.asymmetric(insertion: .identity, removal: .identity))
-        .frame(width: 130, height: 130)
+        CharacterAvatar(characterAvatarURL: character.image)
+            .matchedGeometryEffectIfNotNil(
+                id: character.id,
+                namespace: avatarNamespace
+            )
+            .transition(.asymmetric(insertion: .opacity, removal: .opacity))
+            .frame(width: 130, height: 130)
     }
 }
 
 #Preview {
-    CharacterInfoView(character: CharacterDetailUI.sample)
+    CharacterInfoItemView(character: CharacterDetailUI.sample)
         .previewLayout(.fixed(width: 400, height: 60))
 }
 

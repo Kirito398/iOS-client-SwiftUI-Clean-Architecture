@@ -27,7 +27,7 @@ struct CharacterListScreen: AppView {
     
     var content: some View {
         PagingScrollView(items: viewState.characterList) { character in
-            CharacterInfoView(
+            CharacterInfoItemView(
                 character: character,
                 avatarNamespace: avatarNamespace
             )

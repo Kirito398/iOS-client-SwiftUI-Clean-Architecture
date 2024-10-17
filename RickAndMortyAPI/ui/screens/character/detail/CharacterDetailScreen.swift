@@ -65,18 +65,12 @@ private struct CharacterDetailView : View {
     }
     
     var characterAvatar: some View {
-        AsyncImage(url: URL(string: characterDetail.image)) { phase in
-            if let image: Image = phase.image {
-                image
-                    .resizable(resizingMode: .stretch)
-                    //.aspectRatio(contentMode: .fit)
-            }
-        }
-        .matchedGeometryEffectIfNotNil(
-            id: characterDetail.id,
-            namespace: avatarNamespace
-        )
-        .transition(.asymmetric(insertion: .identity, removal: .identity))
+        CharacterAvatar(characterAvatarURL: characterDetail.image)
+            .matchedGeometryEffectIfNotNil(
+                id: characterDetail.id,
+                namespace: avatarNamespace
+            )
+            .transition(.asymmetric(insertion: .opacity, removal: .opacity))
     }
 }
 

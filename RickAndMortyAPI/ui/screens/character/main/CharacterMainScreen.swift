@@ -15,8 +15,6 @@ struct CharacterMainScreen: AppView {
     private var uiComponent: UiComponentProtocol
     private var characterListViewModel: CharacterListViewModel
     
-    private var listID = UUID()
-    
     @Namespace
     private var avatarNamespace
     
@@ -37,7 +35,6 @@ struct CharacterMainScreen: AppView {
                 ) { characterDetail in
                     showCharacterDetail(by: characterDetail)
                 }
-                .id(listID)
                 
             case.Detail(let characterDetail):
                 CharacterDetailScreen(
@@ -46,6 +43,7 @@ struct CharacterMainScreen: AppView {
                     ),
                     avatarNamespace: avatarNamespace
                 )
+                .zIndex(1)
             }
             
             Button {
@@ -53,18 +51,19 @@ struct CharacterMainScreen: AppView {
             } label: {
                 Text("Back")
             }
+            .zIndex(2)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private func showCharacterDetail(by characterDetail: CharacterDetailUI) {
-        withAnimation(.linear(duration: 5)) {
+        withAnimation() {
             viewModel.showCharacterDetail(by: characterDetail)
         }
     }
     
     private func showCharacterList() {
-        withAnimation(.linear(duration: 5)) {
+        withAnimation() {
             viewModel.showCharacterList()
         }
     }
