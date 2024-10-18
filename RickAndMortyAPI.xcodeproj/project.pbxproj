@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41883FC2CC2369B00CBCBDB /* TitledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41883FB2CC2369B00CBCBDB /* TitledView.swift */; };
 		E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */; };
 		E48A30D82CAA744400B839BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30D72CAA744400B839BF /* Assets.xcassets */; };
 		E48A30DB2CAA744400B839BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E41883FB2CC2369B00CBCBDB /* TitledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledView.swift; sourceTree = "<group>"; };
 		E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIApp.swift; sourceTree = "<group>"; };
 		E48A30D72CAA744400B839BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				E48A310C2CACDAC800B839BF /* ErrorAlert.swift */,
 				E4AF3ABC2CBF40C6009C2998 /* MatchedGeometryEffectIfNotNil.swift */,
+				E41883FB2CC2369B00CBCBDB /* TitledView.swift */,
 			);
 			path = modifiers;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
 				E48A30EF2CAB77D500B839BF /* CharacterListViewModel.swift in Sources */,
 				E48A30F92CAB82EF00B839BF /* RickAndMortyApi.swift in Sources */,
+				E41883FC2CC2369B00CBCBDB /* TitledView.swift in Sources */,
 				E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */,
 				E48A30F22CAB80DD00B839BF /* RickAndMortyInteractor.swift in Sources */,
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,

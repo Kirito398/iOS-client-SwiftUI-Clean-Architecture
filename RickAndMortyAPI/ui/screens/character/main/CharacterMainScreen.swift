@@ -16,7 +16,7 @@ struct CharacterMainScreen: AppView {
     private var characterListViewModel: CharacterListViewModel
     
     @Namespace
-    private var avatarNamespace
+    private var geometryEffectNamespace
     
     init(uiComponent: UiComponentProtocol) {
         self.viewModel = uiComponent.characterMainViewModel
@@ -27,7 +27,7 @@ struct CharacterMainScreen: AppView {
     var content: some View {
         ZStack {
             //TODO: Trouble with matchedGeometryEffect (double views)
-            characterListView 
+            characterListView
                     .zIndex(1)
                     .opacity(viewState.currentScreen.isDetail() ? 0 : 1)
             
@@ -43,7 +43,7 @@ struct CharacterMainScreen: AppView {
     private var characterListView: some View {
         CharacterListScreen(
             viewModel: characterListViewModel,
-            avatarNamespace: avatarNamespace
+            geometryEffectNamespace: geometryEffectNamespace
         ) { characterDetail in
             showCharacterDetail(by: characterDetail)
         }
@@ -57,7 +57,7 @@ struct CharacterMainScreen: AppView {
                     viewModel: uiComponent.getCharacterDetailViewModel(
                         characterDetail: characterDetail
                     ),
-                    avatarNamespace: avatarNamespace
+                    geometryEffectNamespace: geometryEffectNamespace
                 )
                 .zIndex(1)
             }
@@ -72,13 +72,13 @@ struct CharacterMainScreen: AppView {
     }
     
     private func showCharacterDetail(by characterDetail: CharacterDetailUI) {
-        withAnimation() {
+        withAnimation(.snappy(duration: 0.8)) {
             viewModel.showCharacterDetail(by: characterDetail)
         }
     }
     
     private func showCharacterList() {
-        withAnimation() {
+        withAnimation(.snappy(duration: 0.8)) {
             viewModel.showCharacterList()
         }
     }

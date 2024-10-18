@@ -25,7 +25,6 @@ struct CharacterAvatarView: View {
                     .resizable()
                     .scaledToFill()
             }
-            .clipped()
     }
 }
 

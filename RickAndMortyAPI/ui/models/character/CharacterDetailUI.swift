@@ -18,6 +18,7 @@ struct CharacterDetailUI : Identifiable {
     let avatar: CharacterAvatar
     let origin: Origin
     let location: Location
+    let geometryMatchedIds: GeometryMatchedIds
     
     enum Origin {
         case unknown
@@ -45,5 +46,25 @@ struct CharacterDetailUI : Identifiable {
     enum CharacterAvatar {
         case cached(uiImage: UIImage)
         case failed(defaultAvatar: ImageResource)
+    }
+    
+    struct GeometryMatchedIds {
+        let characterId: Int
+        
+        var detailBlock: String {
+            "block_\(characterId)"
+        }
+        
+        var avatar: String {
+            "avatar_\(characterId)"
+        }
+        
+        var name: String {
+            "name_\(characterId)"
+        }
+        
+        var status: String {
+            "status_\(characterId)"
+        }
     }
 }

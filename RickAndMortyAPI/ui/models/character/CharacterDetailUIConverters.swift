@@ -19,7 +19,8 @@ extension CharacterDetail {
             image: self.image,
             avatar: self.avatar.mapToUiModel(),
             origin: self.origin.mapToUIModel(),
-            location: self.location.mapToUIModel()
+            location: self.location.mapToUIModel(),
+            geometryMatchedIds: CharacterDetailUI.GeometryMatchedIds(characterId: self.id)
         )
     }
 }

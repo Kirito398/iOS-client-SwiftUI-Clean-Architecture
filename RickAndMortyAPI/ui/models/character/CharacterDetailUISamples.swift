@@ -18,7 +18,8 @@ extension CharacterDetailUI {
             image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
             avatar: Self.CharacterAvatar.sample,
             origin: Self.Origin.sample,
-            location: Self.Location.sample
+            location: Self.Location.sample,
+            geometryMatchedIds: GeometryMatchedIds(characterId: 1)
         )
 }
 

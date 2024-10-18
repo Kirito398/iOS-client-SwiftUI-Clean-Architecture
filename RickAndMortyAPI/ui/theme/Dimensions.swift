@@ -10,4 +10,5 @@ import SwiftUI
 struct Dimensions {
     static let defaultPading: CGFloat = 8
     static let cornerRadius: CGFloat = 16
+    static let defaultCircusMarkSize: CGFloat = 10
 }

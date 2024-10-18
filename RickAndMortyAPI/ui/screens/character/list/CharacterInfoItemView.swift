@@ -10,11 +10,14 @@ import SwiftUI
 struct CharacterInfoItemView: View {
     
     private var character: CharacterDetailUI
-    private var avatarNamespace: Namespace.ID?
+    private var geometryEffectNamespace: Namespace.ID?
     
-    init(character: CharacterDetailUI, avatarNamespace: Namespace.ID? = nil) {
+    init(
+        character: CharacterDetailUI,
+        geometryEffectNamespace: Namespace.ID? = nil
+    ) {
         self.character = character
-        self.avatarNamespace = avatarNamespace
+        self.geometryEffectNamespace = geometryEffectNamespace
     }
     
     var body: some View {
@@ -23,30 +26,41 @@ struct CharacterInfoItemView: View {
             characterInfo
             Spacer()
         }
-        .frame(maxWidth: .infinity)
         .background(Color.customGray)
         .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
+        .matchedGeometryEffectIfNotNil(
+            id: character.geometryMatchedIds.detailBlock,
+            namespace: geometryEffectNamespace
+        )
+        .frame(maxWidth: .infinity)
     }
     
     private var characterInfo: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(character.name)
-                .matchedGeometryEffectIfNotNil(
-                    id: "name_\(character.id)",
-                    namespace: avatarNamespace
-                )
                 .font(.title3)
                 .fontWeight(.bold)
+                .matchedGeometryEffectIfNotNil(
+                    id: character.geometryMatchedIds.name,
+                    namespace: geometryEffectNamespace
+                )
             
             HStack {
                 Circle()
                     .fill(character.status.color)
-                    .frame(maxWidth: 10, maxHeight: 10)
+                    .frame(
+                        maxWidth: Dimensions.defaultCircusMarkSize,
+                        maxHeight: Dimensions.defaultCircusMarkSize
+                    )
                     
                 Text("\(character.status.toString()) - \(character.species)")
                     .font(.subheadline)
             }
             .padding(.bottom, Dimensions.defaultPading)
+            .matchedGeometryEffectIfNotNil(
+                id: character.geometryMatchedIds.status,
+                namespace: geometryEffectNamespace
+            )
             
             
             Text("Last known location")
@@ -54,8 +68,6 @@ struct CharacterInfoItemView: View {
             Text(character.location.name)
                 .font(.caption2)
                 .padding(.bottom, Dimensions.defaultPading)
-            
-            
             
             Text("First seen in")
                 .font(.caption)
@@ -70,10 +82,9 @@ struct CharacterInfoItemView: View {
     private var characterAvatar: some View {
         CharacterAvatarView(characterAvatar: character.avatar)
             .matchedGeometryEffectIfNotNil(
-                id: character.id,
-                namespace: avatarNamespace
+                id: character.geometryMatchedIds.avatar,
+                namespace: geometryEffectNamespace
             )
-            .transition(.asymmetric(insertion: .identity, removal: .identity))
             .frame(width: 130, height: 130)
     }
 }

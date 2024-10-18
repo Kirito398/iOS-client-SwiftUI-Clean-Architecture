@@ -12,16 +12,16 @@ struct CharacterListScreen: AppView {
     
     @State internal var viewModel: CharacterListViewModel
     
-    private var avatarNamespace: Namespace.ID?
+    private var geometryEffectNamespace: Namespace.ID?
     private var onItemTapListener: ((CharacterDetailUI) -> Void)?
     
     init(
         viewModel: CharacterListViewModel,
-        avatarNamespace: Namespace.ID? = nil,
+        geometryEffectNamespace: Namespace.ID? = nil,
         onItemTapListener: ((CharacterDetailUI) -> Void)? = nil
     ) {
         self.viewModel = viewModel
-        self.avatarNamespace = avatarNamespace
+        self.geometryEffectNamespace = geometryEffectNamespace
         self.onItemTapListener = onItemTapListener
     }
     
@@ -29,7 +29,7 @@ struct CharacterListScreen: AppView {
         PagingScrollView(items: viewState.characterList) { character in
             CharacterInfoItemView(
                 character: character,
-                avatarNamespace: avatarNamespace
+                geometryEffectNamespace: geometryEffectNamespace
             )
             .onTapGesture {
                 onItemTapListener?.self(character)

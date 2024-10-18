@@ -42,3 +42,14 @@ extension CharacterDetailUI.Location {
         }
     }
 }
+
+extension CharacterDetailUI.Gender {
+    var string: String {
+        switch self {
+        case .unknown: "Unknown"
+        case .female: "Female"
+        case .male: "Male"
+        case .genderless: "Genderless"
+        }
+    }
+}
