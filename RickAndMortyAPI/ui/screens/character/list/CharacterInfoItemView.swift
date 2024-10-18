@@ -73,7 +73,7 @@ struct CharacterInfoItemView: View {
                 id: character.id,
                 namespace: avatarNamespace
             )
-            .transition(.asymmetric(insertion: .opacity, removal: .opacity))
+            .transition(.asymmetric(insertion: .identity, removal: .identity))
             .frame(width: 130, height: 130)
     }
 }

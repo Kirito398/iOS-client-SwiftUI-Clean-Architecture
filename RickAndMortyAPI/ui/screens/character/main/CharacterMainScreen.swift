@@ -25,18 +25,34 @@ struct CharacterMainScreen: AppView {
     }
     
     var content: some View {
-        ZStack(alignment: .topLeading) {
+        ZStack {
+            //TODO: Trouble with matchedGeometryEffect (double views)
+            characterListView 
+                    .zIndex(1)
+                    .opacity(viewState.currentScreen.isDetail() ? 0 : 1)
             
-            switch viewState.currentScreen {
-            case .List:
-                CharacterListScreen(
-                    viewModel: characterListViewModel,
-                    avatarNamespace: avatarNamespace
-                ) { characterDetail in
-                    showCharacterDetail(by: characterDetail)
-                }
-                
-            case.Detail(let characterDetail):
+            if case .Detail(_) = viewState.currentScreen {
+                characterDetailView
+                    .zIndex(2)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.darkGray)
+    }
+    
+    private var characterListView: some View {
+        CharacterListScreen(
+            viewModel: characterListViewModel,
+            avatarNamespace: avatarNamespace
+        ) { characterDetail in
+            showCharacterDetail(by: characterDetail)
+        }
+    }
+    
+    @ViewBuilder
+    private var characterDetailView: some View {
+        ZStack(alignment: .topLeading) {
+            if case .Detail(let characterDetail) = viewState.currentScreen {
                 CharacterDetailScreen(
                     viewModel: uiComponent.getCharacterDetailViewModel(
                         characterDetail: characterDetail
@@ -53,7 +69,6 @@ struct CharacterMainScreen: AppView {
             }
             .zIndex(2)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private func showCharacterDetail(by characterDetail: CharacterDetailUI) {

@@ -70,7 +70,7 @@ private struct CharacterDetailView : View {
                 id: characterDetail.id,
                 namespace: avatarNamespace
             )
-            .transition(.asymmetric(insertion: .opacity, removal: .opacity))
+            .transition(.asymmetric(insertion: .identity, removal: .identity))
     }
 }
 
