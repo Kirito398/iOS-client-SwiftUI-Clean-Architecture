@@ -60,14 +60,14 @@ extension CharacterListResponse {
         case list = "results"
     }
     
-    func mapToDomain() throws -> CharacterList {
-        CharacterList(
-            info: self.info.mapToDomain(),
-            list: try self.list.map { item in
-                try item.mapToDomain()
-            }
-        )
-    }
+//    func mapToDomain() throws -> CharacterList {
+//        CharacterList(
+//            info: self.info.mapToDomain(),
+//            list: try self.list.map { item in
+//                try item.mapToDomain()
+//            }
+//        )
+//    }
 }
 
 extension CharacterListResponse.Info {
@@ -82,7 +82,7 @@ extension CharacterListResponse.Info {
 }
 
 extension CharacterListResponse.Character {
-    func mapToDomain() throws -> CharacterDetail {
+    func mapToDomain(avatar: CharacterDetail.CharacterAvatar) throws -> CharacterDetail {
         CharacterDetail(
             id: self.id,
             name: self.name,
@@ -91,6 +91,7 @@ extension CharacterListResponse.Character {
             type: self.type,
             gender: self.gender.mapToDomain(),
             image: self.image,
+            avatar: avatar,
             origin: try self.origin.mapToDomain(),
             location: try self.location.mapToDomain()
         )

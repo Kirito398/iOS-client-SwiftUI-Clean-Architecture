@@ -5,7 +5,7 @@
 //  Created by Ilgiz Sultanbekov on 16.10.2024.
 //
 
-import Foundation
+import SwiftUI
 
 extension CharacterDetail {
     func mapToUIModel() -> CharacterDetailUI {
@@ -17,6 +17,7 @@ extension CharacterDetail {
             type: self.type,
             gender: self.gender.mapToUIModel(),
             image: self.image,
+            avatar: self.avatar.mapToUiModel(),
             origin: self.origin.mapToUIModel(),
             location: self.location.mapToUIModel()
         )
@@ -58,6 +59,16 @@ extension CharacterDetail.Status {
         case .unknown: CharacterDetailUI.Status.unknown
         case .alive: CharacterDetailUI.Status.alive
         case .dead: CharacterDetailUI.Status.dead
+        }
+    }
+}
+
+extension CharacterDetail.CharacterAvatar {
+    func mapToUiModel() -> CharacterDetailUI.CharacterAvatar {
+        if case .cached(let imageData) = self, let uiImage = UIImage(data: imageData) {
+            CharacterDetailUI.CharacterAvatar.cached(uiImage: uiImage)
+        } else {
+            CharacterDetailUI.CharacterAvatar.failed(defaultAvatar: .defaultAvatar)
         }
     }
 }

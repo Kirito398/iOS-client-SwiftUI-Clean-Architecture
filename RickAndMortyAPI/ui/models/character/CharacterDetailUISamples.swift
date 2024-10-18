@@ -16,6 +16,7 @@ extension CharacterDetailUI {
             type: "",
             gender: Self.Gender.sample,
             image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            avatar: Self.CharacterAvatar.sample,
             origin: Self.Origin.sample,
             location: Self.Location.sample
         )
@@ -35,4 +36,8 @@ extension CharacterDetailUI.Status {
 
 extension CharacterDetailUI.Gender {
     static let sample = Self.male
+}
+
+extension CharacterDetailUI.CharacterAvatar {
+    static let sample = Self.failed(defaultAvatar: .defaultAvatar)
 }

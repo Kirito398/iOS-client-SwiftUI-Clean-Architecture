@@ -22,6 +22,10 @@ struct RickAndMortyApi {
         try await apiClient.load(from: "character/\(id)")
     }
     
+    func loadImageData(by url: URL) async throws -> Data {
+        try await apiClient.loadData(from: url)
+    }
+    
 //    func fetchCharacterList() {
 //        apiClient.loadAsync(CharacterListResponse.self, from: "character") { result in
 //            

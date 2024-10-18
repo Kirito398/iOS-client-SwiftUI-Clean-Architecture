@@ -65,7 +65,7 @@ private struct CharacterDetailView : View {
     }
     
     var characterAvatar: some View {
-        CharacterAvatar(characterAvatarURL: characterDetail.image)
+        CharacterAvatarView(characterAvatar: characterDetail.avatar)
             .matchedGeometryEffectIfNotNil(
                 id: characterDetail.id,
                 namespace: avatarNamespace

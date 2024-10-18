@@ -15,6 +15,7 @@ struct CharacterDetailUI : Identifiable {
     let type: String
     let gender: Gender
     let image: String
+    let avatar: CharacterAvatar
     let origin: Origin
     let location: Location
     
@@ -39,5 +40,10 @@ struct CharacterDetailUI : Identifiable {
         case female
         case male
         case genderless
+    }
+    
+    enum CharacterAvatar {
+        case cached(uiImage: UIImage)
+        case failed(defaultAvatar: ImageResource)
     }
 }
