@@ -56,7 +56,7 @@ struct CharacterInfoItemView: View {
                 Text("\(character.status.toString()) - \(character.species)")
                     .font(.subheadline)
             }
-            .padding(.bottom, Dimensions.defaultPading)
+            .padding(.bottom, Dimensions.defaultPadding)
             .matchedGeometryEffectIfNotNil(
                 id: character.geometryMatchedIds.status,
                 namespace: geometryEffectNamespace
@@ -67,7 +67,7 @@ struct CharacterInfoItemView: View {
                 .font(.caption)
             Text(character.location.name)
                 .font(.caption2)
-                .padding(.bottom, Dimensions.defaultPading)
+                .padding(.bottom, Dimensions.defaultPadding)
             
             Text("First seen in")
                 .font(.caption)
@@ -75,7 +75,7 @@ struct CharacterInfoItemView: View {
                 .font(.caption2)
         }
         .foregroundColor(.white)
-        .padding(Dimensions.defaultPading)
+        .padding(Dimensions.defaultPadding)
         .lineLimit(1)
     }
     

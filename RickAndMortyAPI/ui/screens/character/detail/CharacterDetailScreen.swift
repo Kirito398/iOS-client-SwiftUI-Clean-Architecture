@@ -54,7 +54,7 @@ private struct CharacterDetailView : View {
             avatar.zIndex(2)
             detail
         }
-        .padding(Dimensions.defaultPading)
+        .padding(Dimensions.defaultPadding)
     }
     
     private var avatar: some View {

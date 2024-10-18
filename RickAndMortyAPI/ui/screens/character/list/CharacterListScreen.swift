@@ -38,7 +38,7 @@ struct CharacterListScreen: AppView {
         .onNewPage {
             viewModel.loadNextPage()
         }
-        .padding(Dimensions.defaultPading)
+        .padding(Dimensions.defaultPadding)
         .background(Color.darkGray)
         .scrollIndicators(.hidden)
     }

@@ -62,13 +62,33 @@ struct CharacterMainScreen: AppView {
                 .zIndex(1)
             }
             
-            Button {
-                showCharacterList()
-            } label: {
-                Text("Back")
-            }
-            .zIndex(2)
+            backButton
+                .zIndex(2)
         }
+    }
+    
+    private var backButton: some View {
+        Button {
+            showCharacterList()
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(Color.darkGray)
+                    .frame(
+                        width: Dimensions.circleButtonSize,
+                        height: Dimensions.circleButtonSize
+                    )
+                
+                Image(systemName: "chevron.backward.circle")
+                    .resizable()
+                    .foregroundColor(Color.orange)
+                    .frame(
+                        width: Dimensions.circleButtonSize,
+                        height: Dimensions.circleButtonSize
+                    )
+            }
+        }
+        .padding(Dimensions.actionButtonPadding)
     }
     
     private func showCharacterDetail(by characterDetail: CharacterDetailUI) {
