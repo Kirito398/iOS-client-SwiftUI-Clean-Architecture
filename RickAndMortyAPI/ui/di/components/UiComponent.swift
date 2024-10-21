@@ -12,6 +12,7 @@ protocol UiComponentProtocol {
     var navigationRouter: Router { get }
     var characterListViewModel: CharacterListViewModel { get }
     var characterMainViewModel: CharacterMainViewModel { get }
+    var locationListViewModel: LocationListViewModel { get }
     
     func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel
     func getCharacterDetailViewModel(characterDetail: CharacterDetailUI) -> CharacterDetailViewModel
@@ -32,6 +33,10 @@ final class UiComponent : Component<UiComponentDependency>, UiComponentProtocol 
     
     var characterMainViewModel: CharacterMainViewModel {
         CharacterMainViewModel()
+    }
+    
+    var locationListViewModel: LocationListViewModel {
+        LocationListViewModel()
     }
     
     func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel {
