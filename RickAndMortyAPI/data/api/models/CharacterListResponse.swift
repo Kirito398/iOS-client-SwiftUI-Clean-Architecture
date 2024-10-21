@@ -60,14 +60,14 @@ extension CharacterListResponse {
         case list = "results"
     }
     
-    func mapToDomain() throws -> CharacterList {
-        CharacterList(
-            info: self.info.mapToDomain(),
-            list: try self.list.map { item in
-                try item.mapToDomain()
-            }
-        )
-    }
+//    func mapToDomain() throws -> CharacterList {
+//        CharacterList(
+//            info: self.info.mapToDomain(),
+//            list: try self.list.map { item in
+//                try item.mapToDomain()
+//            }
+//        )
+//    }
 }
 
 extension CharacterListResponse.Info {
@@ -82,8 +82,8 @@ extension CharacterListResponse.Info {
 }
 
 extension CharacterListResponse.Character {
-    func mapToDomain() throws -> CharacterList.Character {
-        CharacterList.Character(
+    func mapToDomain(avatar: CharacterDetail.CharacterAvatar) throws -> CharacterDetail {
+        CharacterDetail(
             id: self.id,
             name: self.name,
             status: self.status.mapToDomain(),
@@ -91,6 +91,7 @@ extension CharacterListResponse.Character {
             type: self.type,
             gender: self.gender.mapToDomain(),
             image: self.image,
+            avatar: avatar,
             origin: try self.origin.mapToDomain(),
             location: try self.location.mapToDomain()
         )
@@ -98,11 +99,11 @@ extension CharacterListResponse.Character {
 }
 
 extension CharacterListResponse.Character.Origin {
-    func mapToDomain() throws -> CharacterList.Character.Origin {
+    func mapToDomain() throws -> CharacterDetail.Origin {
         if self.url.isEmpty {
-            CharacterList.Character.Origin.unknown
+            CharacterDetail.Origin.unknown
         } else if let id = self.url.extractID() {
-            CharacterList.Character.Origin.named(
+            CharacterDetail.Origin.named(
                 id: id, name: self.name
             )
         } else {
@@ -112,11 +113,11 @@ extension CharacterListResponse.Character.Origin {
 }
 
 extension CharacterListResponse.Character.Location {
-    func mapToDomain() throws -> CharacterList.Character.Location {
+    func mapToDomain() throws -> CharacterDetail.Location {
         if self.url.isEmpty {
-            CharacterList.Character.Location.unknown
+            CharacterDetail.Location.unknown
         } else if let id = self.url.extractID() {
-            CharacterList.Character.Location.named(
+            CharacterDetail.Location.named(
                 id: id, name: self.name
             )
         } else {
@@ -126,22 +127,22 @@ extension CharacterListResponse.Character.Location {
 }
 
 extension CharacterListResponse.Character.Gender {
-    func mapToDomain() -> CharacterList.Character.Gender {
+    func mapToDomain() -> CharacterDetail.Gender {
         switch self {
-        case .unknown: CharacterList.Character.Gender.unknown
-        case .Female: CharacterList.Character.Gender.female
-        case .Male: CharacterList.Character.Gender.male
-        case .Genderless: CharacterList.Character.Gender.genderless
+        case .unknown: CharacterDetail.Gender.unknown
+        case .Female: CharacterDetail.Gender.female
+        case .Male: CharacterDetail.Gender.male
+        case .Genderless: CharacterDetail.Gender.genderless
         }
     }
 }
 
 extension CharacterListResponse.Character.Status {
-    func mapToDomain() -> CharacterList.Character.Status {
+    func mapToDomain() -> CharacterDetail.Status {
         switch self {
-        case .unknown: CharacterList.Character.Status.unknown
-        case .Alive: CharacterList.Character.Status.alive
-        case .Dead: CharacterList.Character.Status.dead
+        case .unknown: CharacterDetail.Status.unknown
+        case .Alive: CharacterDetail.Status.alive
+        case .Dead: CharacterDetail.Status.dead
         }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol ViewState {
     var errorMessage: FailureError? { get set }
+    var showProgressView: Bool { get set }
 }
 
 extension ViewState {
@@ -18,6 +19,10 @@ extension ViewState {
     
     mutating func clearErrorMessage() {
         errorMessage = nil
+    }
+    
+    mutating func showProgressView(_ isShow: Bool) {
+        showProgressView = isShow
     }
     
     mutating func mutate(by block: (inout Self) -> Void) {

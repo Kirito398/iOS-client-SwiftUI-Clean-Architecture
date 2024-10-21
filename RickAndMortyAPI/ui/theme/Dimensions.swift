@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Dimensions {
-    static let defaultPading: CGFloat = 8
+    static let defaultPadding: CGFloat = 8
+    static let actionButtonPadding: CGFloat = 20
     static let cornerRadius: CGFloat = 16
+    static let defaultCircusMarkSize: CGFloat = 10
+    static let circleButtonSize: CGFloat = 40
 }

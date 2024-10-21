@@ -20,20 +20,21 @@ struct RickAndMortyAPIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $router.navPath) {
-                CharacterListScreen(viewModel: rootComponent.uiComponent.characterListViewModel)
-                    .navigationDestination(for: Destination.self) { destination in
-                        switch destination {
-                        case .CharacterDetail(let id): 
-                            CharacterDetailScreen(
-                                viewModel: CharacterDetailViewModel(
-                                    interactor: rootComponent.domainComponent.rickAndMortyInteractor,
-                                    characterId: id
-                                )
-                            )
-                        }
-                    }
-            }
+//            NavigationStack(path: $router.navPath) {
+//                CharacterListScreen(viewModel: rootComponent.uiComponent.characterListViewModel)
+//                    .navigationDestination(for: Destination.self) { destination in
+//                        switch destination {
+//                        case .CharacterDetail(let id): 
+//                            CharacterDetailScreen(
+//                                viewModel: CharacterDetailViewModel(
+//                                    interactor: rootComponent.domainComponent.rickAndMortyInteractor,
+//                                    characterId: id
+//                                )
+//                            )
+//                        }
+//                    }
+//            }
+            CharacterMainScreen(uiComponent: rootComponent.uiComponent)
         }
         .environmentObject(router)
     }

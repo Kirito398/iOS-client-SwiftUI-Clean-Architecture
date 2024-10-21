@@ -20,11 +20,13 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
         _ body: @escaping () async throws -> D?,
         onResult callback: @escaping (D) -> Void
     ) {
+        showProgressView(true)
         Task {
             do {
                 if let result = try await body() {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [weak self] in
                         callback(result)
+                        self?.showProgressView(false)
                     }
                 }
             } catch let failure as FailureError {
@@ -32,15 +34,15 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.updateErrorMessage(failure: failure)
+                    self?.showProgressView(false)
                 }
             } catch {
                 let failure = FailureError.unknown(error: error.localizedDescription)
                 failure.errorMessage.errorLog()
                 
                 DispatchQueue.main.async { [weak self] in
-                    self?.updateErrorMessage(
-                        failure: failure
-                    )
+                    self?.updateErrorMessage(failure: failure)
+                    self?.showProgressView(false)
                 }
             }
         }
@@ -56,5 +58,9 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
     
     func clearErrorMessage() {
         viewState.clearErrorMessage()
+    }
+    
+    private func showProgressView(_ isShow: Bool) {
+        viewState.showProgressView(isShow)
     }
 }
