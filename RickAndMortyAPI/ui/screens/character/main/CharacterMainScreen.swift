@@ -133,7 +133,8 @@ class CharacterMainViewModel : ViewModel<CharacterMainScreenState> {
 }
 
 struct CharacterMainScreenState : ViewState {
-    var errorMessage: FailureError?
+    internal var errorMessage: FailureError?
+    internal var showProgressView: Bool = false
     var currentScreen: ScreenType = ScreenType.List
     
     enum ScreenType {

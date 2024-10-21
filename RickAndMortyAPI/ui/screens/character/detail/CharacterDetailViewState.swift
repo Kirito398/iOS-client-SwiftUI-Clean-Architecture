@@ -9,6 +9,7 @@ import Foundation
 
 struct CharacterDetailViewState : ViewState {
     internal var errorMessage: FailureError?
+    internal var showProgressView: Bool = false
     private(set) var characterId: Int
     private(set) var characterDetail: CharacterDetailUI? = CharacterDetailUI.sample
 }

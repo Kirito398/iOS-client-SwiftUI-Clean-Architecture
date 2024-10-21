@@ -26,7 +26,10 @@ struct CharacterListScreen: AppView {
     }
     
     var content: some View {
-        PagingScrollView(items: viewState.characterList) { character in
+        PagingScrollView(
+            isRefreshing: viewState.showProgressView,
+            items: viewState.characterList
+        ) { character in
             CharacterInfoItemView(
                 character: character,
                 geometryEffectNamespace: geometryEffectNamespace
@@ -37,6 +40,9 @@ struct CharacterListScreen: AppView {
         }
         .onNewPage {
             viewModel.loadNextPage()
+        }
+        .refreshable {
+            viewModel.refreshCharacterList()
         }
         .padding(Dimensions.defaultPadding)
         .background(Color.darkGray)

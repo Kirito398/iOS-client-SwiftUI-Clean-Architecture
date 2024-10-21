@@ -9,6 +9,7 @@ import Foundation
 
 struct CharacterListScreenState : ViewState {
     internal var errorMessage: FailureError?
+    internal var showProgressView: Bool = false
     private(set) var characterList: [CharacterDetailUI] = []
     private(set) var currentPage: Int = 0
     private(set) var pagesNumber: Int = 1

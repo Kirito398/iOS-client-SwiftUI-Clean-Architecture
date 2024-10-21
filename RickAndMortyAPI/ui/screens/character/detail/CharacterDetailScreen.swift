@@ -22,26 +22,36 @@ struct CharacterDetailScreen : AppView {
     }
     
     var content: some View {
-        HStack {
+        RefreshableScrollView(
+            isRefreshing: viewState.showProgressView,
+            progressView: progressView
+        ) {
             if let characterDetail = viewState.characterDetail {
                 CharacterDetailView(
                     characterDetail: characterDetail,
                     geometryEffectNamespace: geometryEffectNamespace
                 )
-            } else {
-                ProgressView()
-                    .foregroundColor(Color.lightOrange)
             }
-        }.onAppear() {
+        }
+        .refreshable {
+            viewModel.fetchCharacterDetail()
+        }
+        .onAppear() {
             viewModel.fetchCharacterDetail()
         }
         .frame(
-              maxWidth: .infinity,
-              maxHeight: .infinity,
-              alignment: .topLeading
-            )
+            maxWidth: .infinity,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        )
         .background(Color.darkGray)
         .foregroundColor(Color.white)
+    }
+    
+    private var progressView: some View {
+        ProgressView()
+            .tint(Color.lightOrange)
+            .padding()
     }
 }
 
@@ -98,8 +108,6 @@ private struct CharacterDetailView : View {
             Text(characterDetail.location.name)
                 .font(.title3)
                 .titled("Last known location:")
-            
-            Text("Episodes:")
         }
         .padding()
         .background(Color.customGray)
