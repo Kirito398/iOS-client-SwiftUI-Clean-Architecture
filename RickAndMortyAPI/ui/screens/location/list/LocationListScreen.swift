@@ -12,7 +12,47 @@ struct LocationListScreen: AppView {
     internal var viewModel: LocationListViewModel
     
     var content: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        PagingScrollView(
+            isRefreshing: viewState.showProgressView,
+            items: viewState.locationList
+        ) { locationDetail in
+            LocationListItemView(locationDetail: locationDetail)
+        }
+        .onNewPage {
+            viewModel.loadNextPage()
+        }
+        .refreshable {
+            viewModel.refreshLocationList()
+        }
+        .padding(Dimensions.defaultPadding)
+        .background(Color.darkGray)
+        .scrollIndicators(.hidden)
+        .foregroundColor(Color.white)
+    }
+}
+
+struct LocationListItemView: View {
+    let locationDetail: LocationDetailUI
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(locationDetail.name)
+                .font(.title2)
+                .fontWeight(.bold)
+            
+            Text(locationDetail.type)
+                .titled("Type:", fontWeight: .medium)
+            
+            Text(locationDetail.dimension)
+                .titled("Dimension:", fontWeight: .medium)
+        }
+        .frame(
+            maxWidth: .infinity,
+            alignment: .leading
+        )
+        .padding(Dimensions.defaultPadding)
+        .background(Color.customGray)
+        .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
     }
 }
 

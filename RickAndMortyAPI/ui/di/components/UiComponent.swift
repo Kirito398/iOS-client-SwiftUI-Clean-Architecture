@@ -36,7 +36,7 @@ final class UiComponent : Component<UiComponentDependency>, UiComponentProtocol 
     }
     
     var locationListViewModel: LocationListViewModel {
-        LocationListViewModel()
+        LocationListViewModel(interactor: dependency.rickAndMortyInteractor)
     }
     
     func getCharacterDetailViewModel(characterId: Int) -> CharacterDetailViewModel {

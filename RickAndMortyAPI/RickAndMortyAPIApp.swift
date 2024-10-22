@@ -34,7 +34,8 @@ struct RickAndMortyAPIApp: App {
 //                        }
 //                    }
 //            }
-            CharacterMainScreen(uiComponent: rootComponent.uiComponent)
+            //CharacterMainScreen(uiComponent: rootComponent.uiComponent)
+            LocationListScreen(viewModel: rootComponent.uiComponent.locationListViewModel)
         }
         .environmentObject(router)
     }

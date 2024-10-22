@@ -14,6 +14,11 @@
 		E41884072CC63E2B00CBCBDB /* LocationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884062CC63E2A00CBCBDB /* LocationListScreen.swift */; };
 		E41884092CC63E3D00CBCBDB /* LocationListScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884082CC63E3C00CBCBDB /* LocationListScreenState.swift */; };
 		E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */; };
+		E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840C2CC6448500CBCBDB /* LocationListResponse.swift */; };
+		E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840E2CC6469700CBCBDB /* LocationList.swift */; };
+		E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884102CC646D600CBCBDB /* LocationDetail.swift */; };
+		E41884142CC726DE00CBCBDB /* LocationListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884132CC726DE00CBCBDB /* LocationListUI.swift */; };
+		E41884162CC726F000CBCBDB /* LocationDetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884152CC726F000CBCBDB /* LocationDetailUI.swift */; };
 		E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */; };
 		E48A30D82CAA744400B839BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30D72CAA744400B839BF /* Assets.xcassets */; };
 		E48A30DB2CAA744400B839BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */; };
@@ -67,6 +72,11 @@
 		E41884062CC63E2A00CBCBDB /* LocationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListScreen.swift; sourceTree = "<group>"; };
 		E41884082CC63E3C00CBCBDB /* LocationListScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListScreenState.swift; sourceTree = "<group>"; };
 		E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		E418840C2CC6448500CBCBDB /* LocationListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListResponse.swift; sourceTree = "<group>"; };
+		E418840E2CC6469700CBCBDB /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		E41884102CC646D600CBCBDB /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		E41884132CC726DE00CBCBDB /* LocationListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListUI.swift; sourceTree = "<group>"; };
+		E41884152CC726F000CBCBDB /* LocationDetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailUI.swift; sourceTree = "<group>"; };
 		E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIApp.swift; sourceTree = "<group>"; };
 		E48A30D72CAA744400B839BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +150,15 @@
 				E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */,
 			);
 			path = list;
+			sourceTree = "<group>";
+		};
+		E41884122CC726C300CBCBDB /* location */ = {
+			isa = PBXGroup;
+			children = (
+				E41884132CC726DE00CBCBDB /* LocationListUI.swift */,
+				E41884152CC726F000CBCBDB /* LocationDetailUI.swift */,
+			);
+			path = location;
 			sourceTree = "<group>";
 		};
 		E48A30C72CAA744200B839BF = {
@@ -236,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				E48A30EC2CAB762200B839BF /* CharacterListResponse.swift */,
+				E418840C2CC6448500CBCBDB /* LocationListResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -254,6 +274,8 @@
 				E48A30F42CAB811D00B839BF /* CharacterList.swift */,
 				E48A30FA2CAB8AA900B839BF /* FailureError.swift */,
 				E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */,
+				E418840E2CC6469700CBCBDB /* LocationList.swift */,
+				E41884102CC646D600CBCBDB /* LocationDetail.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -367,6 +389,7 @@
 		E4AF3ABF2CBF95E0009C2998 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				E41884122CC726C300CBCBDB /* location */,
 				E4AF3AC22CBF98E0009C2998 /* character */,
 			);
 			path = models;
@@ -542,7 +565,10 @@
 				E4AF3AC42CBF9901009C2998 /* CharacterDetailUIExtensions.swift in Sources */,
 				E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */,
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
+				E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */,
+				E41884142CC726DE00CBCBDB /* LocationListUI.swift in Sources */,
 				E48A30EF2CAB77D500B839BF /* CharacterListViewModel.swift in Sources */,
+				E41884162CC726F000CBCBDB /* LocationDetailUI.swift in Sources */,
 				E48A30F92CAB82EF00B839BF /* RickAndMortyApi.swift in Sources */,
 				E41883FC2CC2369B00CBCBDB /* TitledView.swift in Sources */,
 				E41884072CC63E2B00CBCBDB /* LocationListScreen.swift in Sources */,
@@ -551,8 +577,10 @@
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
 				E48A30F72CAB81E200B839BF /* RickAndMortyRepository.swift in Sources */,
 				E48A31052CACC7F100B839BF /* Extensions.swift in Sources */,
+				E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */,
 				E4A2C9892CBDED3300C7D29A /* CharacterMainScreen.swift in Sources */,
 				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
+				E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */,
 				E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */,
 				E4A2C97C2CB8C4FE00C7D29A /* NeedleGenerated.swift in Sources */,
 				E4AF3ACA2CBFA77C009C2998 /* CharacterListUI.swift in Sources */,

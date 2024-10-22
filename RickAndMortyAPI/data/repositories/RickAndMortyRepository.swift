@@ -46,4 +46,12 @@ struct RickAndMortyRepository {
             return CharacterDetail.CharacterAvatar.failed
         }
     }
+    
+    func fetchLocationList(by page: Int) async throws -> LocationList {
+        try await rickAndMortyApi.fetchLocationList(by: page).mapToDomain()
+    }
+    
+    func fetchLocationDetail(by id: Int) async throws -> LocationDetail {
+        try await rickAndMortyApi.fetchLocationDetail(by: id).mapToDomain()
+    }
 }

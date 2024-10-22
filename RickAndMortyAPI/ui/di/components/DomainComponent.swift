@@ -18,9 +18,11 @@ protocol DomainComponentDependency : Dependency {
 
 final class DomainComponent : Component<DomainComponentDependency>, DomainComponentProtocol {
     public var rickAndMortyInteractor: RickAndMortyInteractor {
-        RickAndMortyInteractor(
-            repository: dependency.rickAndMortyRepository
-        )
+        shared {
+            RickAndMortyInteractor(
+                repository: dependency.rickAndMortyRepository
+            )
+        }
     }
     
     var uiComponent: UiComponent {
