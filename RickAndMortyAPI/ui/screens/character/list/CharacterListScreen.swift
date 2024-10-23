@@ -44,7 +44,6 @@ struct CharacterListScreen: AppView {
         .refreshable {
             viewModel.refreshCharacterList()
         }
-        .background(Color.darkGray)
         .scrollIndicators(.hidden)
     }
 }
@@ -53,4 +52,5 @@ struct CharacterListScreen: AppView {
     CharacterListScreen(
         viewModel: RootComponent().uiComponent.characterListViewModel
     )
+    .appTheme()
 }

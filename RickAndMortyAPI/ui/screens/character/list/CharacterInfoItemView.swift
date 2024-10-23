@@ -91,5 +91,5 @@ struct CharacterInfoItemView: View {
 #Preview {
     CharacterInfoItemView(character: CharacterDetailUI.sample)
         .previewLayout(.fixed(width: 400, height: 60))
-        .foregroundColor(.white)
+        .appTheme()
 }

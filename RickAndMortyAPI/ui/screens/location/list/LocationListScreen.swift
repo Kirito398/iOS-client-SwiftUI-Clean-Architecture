@@ -24,10 +24,7 @@ struct LocationListScreen: AppView {
         .refreshable {
             viewModel.refreshLocationList()
         }
-        .padding(Dimensions.defaultPadding)
-        .background(Color.darkGray)
         .scrollIndicators(.hidden)
-        .foregroundColor(Color.white)
     }
 }
 
@@ -58,4 +55,5 @@ struct LocationListItemView: View {
 
 #Preview {
     LocationListScreen(viewModel: RootComponent().uiComponent.locationListViewModel)
+        .appTheme()
 }

@@ -21,6 +21,7 @@ struct RickAndMortyAPIApp: App {
     var body: some Scene {
         WindowGroup {
             MainScreen()
+                .appTheme()
 //            NavigationStack(path: $router.navPath) {
 //                CharacterListScreen(viewModel: rootComponent.uiComponent.characterListViewModel)
 //                    .navigationDestination(for: Destination.self) { destination in
@@ -35,10 +36,6 @@ struct RickAndMortyAPIApp: App {
 //                        }
 //                    }
 //            }
-            //CharacterMainScreen(uiComponent: rootComponent.uiComponent)
-            //LocationListScreen(viewModel: rootComponent.uiComponent.locationListViewModel)
-            
-            
         }
         //.environmentObject(router)
     }

@@ -21,6 +21,7 @@
 		E41884162CC726F000CBCBDB /* LocationDetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884152CC726F000CBCBDB /* LocationDetailUI.swift */; };
 		E41884182CC76FF700CBCBDB /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */; };
 		E418841B2CC78E7900CBCBDB /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841A2CC78E7900CBCBDB /* MainScreen.swift */; };
+		E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841C2CC899BE00CBCBDB /* AppTheme.swift */; };
 		E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */; };
 		E48A30D82CAA744400B839BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30D72CAA744400B839BF /* Assets.xcassets */; };
 		E48A30DB2CAA744400B839BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		E41884152CC726F000CBCBDB /* LocationDetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailUI.swift; sourceTree = "<group>"; };
 		E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
 		E418841A2CC78E7900CBCBDB /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		E418841C2CC899BE00CBCBDB /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIApp.swift; sourceTree = "<group>"; };
 		E48A30D72CAA744400B839BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			children = (
 				E48A31192CAF89F400B839BF /* Colors.swift */,
 				E4D269C92CAFA08D00EACE69 /* Dimensions.swift */,
+				E418841C2CC899BE00CBCBDB /* AppTheme.swift */,
 			);
 			path = theme;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				E4A2C9892CBDED3300C7D29A /* CharacterMainScreen.swift in Sources */,
 				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
 				E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */,
+				E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */,
 				E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */,
 				E4A2C97C2CB8C4FE00C7D29A /* NeedleGenerated.swift in Sources */,
 				E4AF3ACA2CBFA77C009C2998 /* CharacterListUI.swift in Sources */,

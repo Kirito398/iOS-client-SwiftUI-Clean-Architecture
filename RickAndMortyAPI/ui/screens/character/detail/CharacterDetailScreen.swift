@@ -44,8 +44,6 @@ struct CharacterDetailScreen : AppView {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        //.background(Color.darkGray)
-        .foregroundColor(Color.white)
     }
     
     private var progressView: some View {
@@ -160,4 +158,5 @@ private struct CharacterDetailView : View {
             characterId: 1
         )
     )
+    .appTheme()
 }

@@ -31,13 +31,12 @@ struct MainScreen: View {
                 trailing: Dimensions.defaultPadding)
             )
         }
-        .foregroundColor(.white)
-        .background(Color.darkGray)
     }
 }
 
 #Preview {
     MainScreen()
+        .appTheme()
 }
 
 enum MenuItem : BottomNavigationMenuItem {

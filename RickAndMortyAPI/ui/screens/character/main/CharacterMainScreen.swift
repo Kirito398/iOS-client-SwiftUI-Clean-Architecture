@@ -40,7 +40,6 @@ struct CharacterMainScreen: AppView {
             showCharacterList()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.darkGray)
     }
     
     private var characterListView: some View {
@@ -109,4 +108,5 @@ struct CharacterMainScreen: AppView {
 
 #Preview {
     CharacterMainScreen(uiComponent: RootComponent().uiComponent)
+        .appTheme()
 }
