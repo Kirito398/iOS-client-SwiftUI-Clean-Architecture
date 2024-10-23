@@ -74,7 +74,6 @@ struct CharacterInfoItemView: View {
             Text(character.origin.name)
                 .font(.caption2)
         }
-        .foregroundColor(.white)
         .padding(Dimensions.defaultPadding)
         .lineLimit(1)
     }
@@ -92,8 +91,5 @@ struct CharacterInfoItemView: View {
 #Preview {
     CharacterInfoItemView(character: CharacterDetailUI.sample)
         .previewLayout(.fixed(width: 400, height: 60))
-}
-
-extension View {
-    
+        .foregroundColor(.white)
 }

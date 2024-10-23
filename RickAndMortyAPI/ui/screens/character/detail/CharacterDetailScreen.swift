@@ -44,7 +44,7 @@ struct CharacterDetailScreen : AppView {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .background(Color.darkGray)
+        //.background(Color.darkGray)
         .foregroundColor(Color.white)
     }
     
@@ -64,7 +64,6 @@ private struct CharacterDetailView : View {
             avatar.zIndex(2)
             detail
         }
-        .padding(Dimensions.defaultPadding)
     }
     
     private var avatar: some View {

@@ -44,7 +44,6 @@ struct CharacterListScreen: AppView {
         .refreshable {
             viewModel.refreshCharacterList()
         }
-        .padding(Dimensions.defaultPadding)
         .background(Color.darkGray)
         .scrollIndicators(.hidden)
     }

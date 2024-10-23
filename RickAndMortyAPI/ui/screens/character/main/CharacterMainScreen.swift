@@ -36,6 +36,9 @@ struct CharacterMainScreen: AppView {
                     .zIndex(2)
             }
         }
+        .onDisappear {
+            showCharacterList()
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.darkGray)
     }
