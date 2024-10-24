@@ -11,13 +11,16 @@ struct LocationListScreen: AppView {
     typealias ViewStateType = LocationListScreenState
     internal var viewModel: LocationListViewModel
     
-    private var onItemTapListener: ((LocationDetailUI) -> Void)?
+    private let geometryMatchedEffectNamespace: Namespace.ID?
+    private let onItemTapListener: ((LocationDetailUI) -> Void)?
     
     init(
         viewModel: LocationListViewModel,
+        geometryMatchedEffectNamespace: Namespace.ID? = nil,
         onItemTapListener: ((LocationDetailUI) -> Void)? = nil
     ) {
         self.viewModel = viewModel
+        self.geometryMatchedEffectNamespace = geometryMatchedEffectNamespace
         self.onItemTapListener = onItemTapListener
     }
     
@@ -26,10 +29,13 @@ struct LocationListScreen: AppView {
             isRefreshing: viewState.showProgressView,
             items: viewState.locationList
         ) { locationDetail in
-            LocationListItemView(locationDetail: locationDetail)
-                .onTapGesture {
-                    onItemTapListener?.self(locationDetail)
-                }
+            LocationListItemView(
+                locationDetail: locationDetail,
+                geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
+            )
+            .onTapGesture {
+                onItemTapListener?.self(locationDetail)
+            }
         }
         .onNewPage {
             viewModel.loadNextPage()
@@ -42,7 +48,16 @@ struct LocationListScreen: AppView {
 }
 
 struct LocationListItemView: View {
-    let locationDetail: LocationDetailUI
+    private let locationDetail: LocationDetailUI
+    private let geometryMatchedEffectNamespace: Namespace.ID?
+    
+    init(
+        locationDetail: LocationDetailUI,
+        geometryMatchedEffectNamespace: Namespace.ID? = nil
+    ) {
+        self.locationDetail = locationDetail
+        self.geometryMatchedEffectNamespace = geometryMatchedEffectNamespace
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -63,6 +78,10 @@ struct LocationListItemView: View {
         .padding(Dimensions.defaultPadding)
         .background(Color.customGray)
         .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
+        .matchedGeometryEffectIfNotNil(
+            id: locationDetail.geometryMatchedIds.block,
+            namespace: geometryMatchedEffectNamespace
+        )
     }
 }
 

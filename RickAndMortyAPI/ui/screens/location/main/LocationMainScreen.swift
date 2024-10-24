@@ -14,6 +14,9 @@ struct LocationMainScreen: AppView {
     private let uiComponent: UiComponentProtocol
     private let locationListViewModel: LocationListViewModel
     
+    @Namespace
+    private var geometryMatchedEffectNamespace
+    
     init(uiComponent: UiComponentProtocol) {
         self.uiComponent = uiComponent
         self.viewModel = uiComponent.locationMainViewModel
@@ -23,16 +26,21 @@ struct LocationMainScreen: AppView {
     var content: some View {
         ZStack {
             list.opacity(viewState.currentScreen.isDetail() ? 0 : 1)
+                .zIndex(1)
             
             if viewState.currentScreen.isDetail() {
                 detail
+                    .zIndex(2)
             }
         }
     }
     
     private var list: some View {
-        LocationListScreen(viewModel: locationListViewModel) { locationDetail in
-            viewModel.setCurrentScreen(.Detail(locationDetail: locationDetail))
+        LocationListScreen(
+            viewModel: locationListViewModel,
+            geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
+        ) { locationDetail in
+            showDetailSreen(locationDetail: locationDetail)
         }
     }
     
@@ -40,16 +48,31 @@ struct LocationMainScreen: AppView {
     private var detail: some View {
         VStack(alignment: .leading, spacing: .zero) {
             BackButton {
-                viewModel.setCurrentScreen(.List)
+                showListScreen()
             }
+            .zIndex(1)
             
             if case .Detail(let locationDetail) = viewState.currentScreen {
                 LocationDetailScreen(
                     viewModel: uiComponent.locationDetailViewModel(
                         locationDetail: locationDetail
-                    )
+                    ),
+                    geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
                 )
+                .zIndex(2)
             }
+        }
+    }
+    
+    private func showListScreen() {
+        withAnimation {
+            viewModel.setCurrentScreen(.List)
+        }
+    }
+    
+    private func showDetailSreen(locationDetail: LocationDetailUI) {
+        withAnimation {
+            viewModel.setCurrentScreen(.Detail(locationDetail: locationDetail))
         }
     }
 }

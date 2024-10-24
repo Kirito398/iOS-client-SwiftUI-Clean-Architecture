@@ -11,13 +11,26 @@ struct LocationDetailScreen: AppView {
     typealias ViewStateType = LocationDetailViewState
     internal var viewModel: LocationDetailViewModel
     
+    private let geometryMatchedEffectNamespace: Namespace.ID?
+    
+    init(
+        viewModel: LocationDetailViewModel,
+        geometryMatchedEffectNamespace: Namespace.ID? = nil
+    ) {
+        self.viewModel = viewModel
+        self.geometryMatchedEffectNamespace = geometryMatchedEffectNamespace
+    }
+    
     var content: some View {
         RefreshableScrollView(
             isRefreshing: viewState.showProgressView,
             progressView: AppProgressView()
         ) {
             if let locationDetail = viewState.locationDetail {
-                LocationDetailView(locationDetail: locationDetail)
+                LocationDetailView(
+                    locationDetail: locationDetail,
+                    geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
+                )
             }
         }
         .refreshable {
@@ -35,7 +48,16 @@ struct LocationDetailScreen: AppView {
 }
 
 struct LocationDetailView : View {
-    let locationDetail: LocationDetailUI
+    private let locationDetail: LocationDetailUI
+    private let geometryMatchedEffectNamespace: Namespace.ID?
+    
+    init(
+        locationDetail: LocationDetailUI,
+        geometryMatchedEffectNamespace: Namespace.ID? = nil
+    ) {
+        self.locationDetail = locationDetail
+        self.geometryMatchedEffectNamespace = geometryMatchedEffectNamespace
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -52,6 +74,10 @@ struct LocationDetailView : View {
         .padding()
         .background(Color.customGray)
         .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
+        .matchedGeometryEffectIfNotNil(
+            id: locationDetail.geometryMatchedIds.block,
+            namespace: geometryMatchedEffectNamespace
+        )
     }
     
     private var detailTitle: some View {

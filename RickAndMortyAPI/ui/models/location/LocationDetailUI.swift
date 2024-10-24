@@ -16,6 +16,14 @@ struct LocationDetailUI : Identifiable {
     let geometryMatchedIds: GeometryMatchedIds
     
     struct GeometryMatchedIds {
-        let locationId: Int
+        private let locationId: Int
+        
+        init(locationId: Int) {
+            self.locationId = locationId
+        }
+        
+        var block: String {
+            "location_block_\(locationId)"
+        }
     }
 }
