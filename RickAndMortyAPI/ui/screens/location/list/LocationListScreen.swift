@@ -11,12 +11,25 @@ struct LocationListScreen: AppView {
     typealias ViewStateType = LocationListScreenState
     internal var viewModel: LocationListViewModel
     
+    private var onItemTapListener: ((LocationDetailUI) -> Void)?
+    
+    init(
+        viewModel: LocationListViewModel,
+        onItemTapListener: ((LocationDetailUI) -> Void)? = nil
+    ) {
+        self.viewModel = viewModel
+        self.onItemTapListener = onItemTapListener
+    }
+    
     var content: some View {
         PagingScrollView(
             isRefreshing: viewState.showProgressView,
             items: viewState.locationList
         ) { locationDetail in
             LocationListItemView(locationDetail: locationDetail)
+                .onTapGesture {
+                    onItemTapListener?.self(locationDetail)
+                }
         }
         .onNewPage {
             viewModel.loadNextPage()
@@ -54,6 +67,8 @@ struct LocationListItemView: View {
 }
 
 #Preview {
-    LocationListScreen(viewModel: RootComponent().uiComponent.locationListViewModel)
-        .appTheme()
+    LocationListScreen(
+        viewModel: RootComponent().uiComponent.locationListViewModel
+    )
+    .appTheme()
 }

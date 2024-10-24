@@ -46,7 +46,8 @@ extension LocationDetail {
             name: self.name,
             type: self.type,
             dimension: self.dimension,
-            created: self.created
+            created: self.created,
+            geometryMatchedIds: LocationDetailUI.GeometryMatchedIds(locationId: self.id)
         )
     }
 }

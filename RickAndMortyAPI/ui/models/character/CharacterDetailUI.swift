@@ -52,19 +52,19 @@ struct CharacterDetailUI : Identifiable {
         let characterId: Int
         
         var detailBlock: String {
-            "block_\(characterId)"
+            "character_block_\(characterId)"
         }
         
         var avatar: String {
-            "avatar_\(characterId)"
+            "character_avatar_\(characterId)"
         }
         
         var name: String {
-            "name_\(characterId)"
+            "character_name_\(characterId)"
         }
         
         var status: String {
-            "status_\(characterId)"
+            "character_status_\(characterId)"
         }
     }
 }

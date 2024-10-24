@@ -21,12 +21,9 @@ class CharacterDetailViewModel : ViewModel<CharacterDetailViewState> {
     }
     
     func fetchCharacterDetail() {
+        let characterId = viewState.characterId
         doTask { [weak self] in
-            if let characterId = self?.viewState.characterId {
-                try await self?.interactor.fetchCharacterDetail(by:characterId).mapToUIModel()
-            } else {
-                nil
-            }
+            try await self?.interactor.fetchCharacterDetail(by: characterId).mapToUIModel()
         } onResult: { [weak self] detail in
             self?.updateCharacterDetail(by: detail)
         }

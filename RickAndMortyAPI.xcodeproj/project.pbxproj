@@ -22,6 +22,12 @@
 		E41884182CC76FF700CBCBDB /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */; };
 		E418841B2CC78E7900CBCBDB /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841A2CC78E7900CBCBDB /* MainScreen.swift */; };
 		E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841C2CC899BE00CBCBDB /* AppTheme.swift */; };
+		E41884202CC8CC2F00CBCBDB /* LocationDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */; };
+		E41884222CC8CC4300CBCBDB /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */; };
+		E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */; };
+		E41884262CC8D68400CBCBDB /* AppProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884252CC8D68400CBCBDB /* AppProgressView.swift */; };
+		E41884292CC8EA2400CBCBDB /* LocationMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */; };
+		E418842B2CC9CE8C00CBCBDB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418842A2CC9CE8C00CBCBDB /* BackButton.swift */; };
 		E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */; };
 		E48A30D82CAA744400B839BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30D72CAA744400B839BF /* Assets.xcassets */; };
 		E48A30DB2CAA744400B839BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */; };
@@ -83,6 +89,12 @@
 		E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
 		E418841A2CC78E7900CBCBDB /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		E418841C2CC899BE00CBCBDB /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailScreen.swift; sourceTree = "<group>"; };
+		E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewState.swift; sourceTree = "<group>"; };
+		E41884252CC8D68400CBCBDB /* AppProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressView.swift; sourceTree = "<group>"; };
+		E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMainScreen.swift; sourceTree = "<group>"; };
+		E418842A2CC9CE8C00CBCBDB /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIApp.swift; sourceTree = "<group>"; };
 		E48A30D72CAA744400B839BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +155,8 @@
 		E41884042CC63E0E00CBCBDB /* location */ = {
 			isa = PBXGroup;
 			children = (
+				E41884272CC8DD6E00CBCBDB /* main */,
+				E418841E2CC8CBFE00CBCBDB /* detail */,
 				E41884052CC63E1600CBCBDB /* list */,
 			);
 			path = location;
@@ -171,6 +185,24 @@
 			isa = PBXGroup;
 			children = (
 				E418841A2CC78E7900CBCBDB /* MainScreen.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		E418841E2CC8CBFE00CBCBDB /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */,
+				E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */,
+				E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		E41884272CC8DD6E00CBCBDB /* main */ = {
+			isa = PBXGroup;
+			children = (
+				E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -445,6 +477,8 @@
 				E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */,
 				E41883FD2CC25A6000CBCBDB /* RefreshableScrollView.swift */,
 				E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */,
+				E41884252CC8D68400CBCBDB /* AppProgressView.swift */,
+				E418842A2CC9CE8C00CBCBDB /* BackButton.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -575,6 +609,7 @@
 				E418841B2CC78E7900CBCBDB /* MainScreen.swift in Sources */,
 				E41884092CC63E3D00CBCBDB /* LocationListScreenState.swift in Sources */,
 				E4AF3AC12CBF95F9009C2998 /* CharacterDetailUI.swift in Sources */,
+				E41884262CC8D68400CBCBDB /* AppProgressView.swift in Sources */,
 				E41884182CC76FF700CBCBDB /* BottomNavigationView.swift in Sources */,
 				E41884002CC6273A00CBCBDB /* CharacterMainViewModel.swift in Sources */,
 				E4AF3ABD2CBF40C6009C2998 /* MatchedGeometryEffectIfNotNil.swift in Sources */,
@@ -582,6 +617,7 @@
 				E48A310D2CACDAC800B839BF /* ErrorAlert.swift in Sources */,
 				E48A31072CACC8C900B839BF /* CharacterListScreen.swift in Sources */,
 				E4AF3AC42CBF9901009C2998 /* CharacterDetailUIExtensions.swift in Sources */,
+				E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */,
 				E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */,
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
 				E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */,
@@ -591,6 +627,9 @@
 				E48A30F92CAB82EF00B839BF /* RickAndMortyApi.swift in Sources */,
 				E41883FC2CC2369B00CBCBDB /* TitledView.swift in Sources */,
 				E41884072CC63E2B00CBCBDB /* LocationListScreen.swift in Sources */,
+				E41884222CC8CC4300CBCBDB /* LocationDetailViewModel.swift in Sources */,
+				E41884202CC8CC2F00CBCBDB /* LocationDetailScreen.swift in Sources */,
+				E418842B2CC9CE8C00CBCBDB /* BackButton.swift in Sources */,
 				E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */,
 				E48A30F22CAB80DD00B839BF /* RickAndMortyInteractor.swift in Sources */,
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
@@ -603,6 +642,7 @@
 				E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */,
 				E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */,
 				E4A2C97C2CB8C4FE00C7D29A /* NeedleGenerated.swift in Sources */,
+				E41884292CC8EA2400CBCBDB /* LocationMainScreen.swift in Sources */,
 				E4AF3ACA2CBFA77C009C2998 /* CharacterListUI.swift in Sources */,
 				E4A2C9792CB8C2E100C7D29A /* RootComponent.swift in Sources */,
 				E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */,

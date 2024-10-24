@@ -13,4 +13,9 @@ struct LocationDetailUI : Identifiable {
     let type: String
     let dimension: String
     let created: String
+    let geometryMatchedIds: GeometryMatchedIds
+    
+    struct GeometryMatchedIds {
+        let locationId: Int
+    }
 }

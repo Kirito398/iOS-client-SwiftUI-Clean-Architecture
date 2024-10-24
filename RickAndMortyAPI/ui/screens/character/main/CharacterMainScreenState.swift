@@ -10,7 +10,7 @@ import Foundation
 struct CharacterMainScreenState : ViewState {
     internal var errorMessage: FailureError?
     internal var showProgressView: Bool = false
-    var currentScreen: ScreenType = ScreenType.List
+    private(set) var currentScreen: ScreenType = ScreenType.List
     
     enum ScreenType {
         case List
