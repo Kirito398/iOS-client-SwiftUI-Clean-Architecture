@@ -11,6 +11,23 @@
 		E41883FE2CC25A6000CBCBDB /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41883FD2CC25A6000CBCBDB /* RefreshableScrollView.swift */; };
 		E41884002CC6273A00CBCBDB /* CharacterMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41883FF2CC6273A00CBCBDB /* CharacterMainViewModel.swift */; };
 		E41884032CC6277E00CBCBDB /* CharacterMainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884022CC6277E00CBCBDB /* CharacterMainScreenState.swift */; };
+		E41884072CC63E2B00CBCBDB /* LocationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884062CC63E2A00CBCBDB /* LocationListScreen.swift */; };
+		E41884092CC63E3D00CBCBDB /* LocationListScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884082CC63E3C00CBCBDB /* LocationListScreenState.swift */; };
+		E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */; };
+		E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840C2CC6448500CBCBDB /* LocationListResponse.swift */; };
+		E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418840E2CC6469700CBCBDB /* LocationList.swift */; };
+		E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884102CC646D600CBCBDB /* LocationDetail.swift */; };
+		E41884142CC726DE00CBCBDB /* LocationListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884132CC726DE00CBCBDB /* LocationListUI.swift */; };
+		E41884162CC726F000CBCBDB /* LocationDetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884152CC726F000CBCBDB /* LocationDetailUI.swift */; };
+		E41884182CC76FF700CBCBDB /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */; };
+		E418841B2CC78E7900CBCBDB /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841A2CC78E7900CBCBDB /* MainScreen.swift */; };
+		E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841C2CC899BE00CBCBDB /* AppTheme.swift */; };
+		E41884202CC8CC2F00CBCBDB /* LocationDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */; };
+		E41884222CC8CC4300CBCBDB /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */; };
+		E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */; };
+		E41884262CC8D68400CBCBDB /* AppProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884252CC8D68400CBCBDB /* AppProgressView.swift */; };
+		E41884292CC8EA2400CBCBDB /* LocationMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */; };
+		E418842B2CC9CE8C00CBCBDB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E418842A2CC9CE8C00CBCBDB /* BackButton.swift */; };
 		E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */; };
 		E48A30D82CAA744400B839BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30D72CAA744400B839BF /* Assets.xcassets */; };
 		E48A30DB2CAA744400B839BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A30DA2CAA744400B839BF /* Preview Assets.xcassets */; };
@@ -61,6 +78,23 @@
 		E41883FD2CC25A6000CBCBDB /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		E41883FF2CC6273A00CBCBDB /* CharacterMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMainViewModel.swift; sourceTree = "<group>"; };
 		E41884022CC6277E00CBCBDB /* CharacterMainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMainScreenState.swift; sourceTree = "<group>"; };
+		E41884062CC63E2A00CBCBDB /* LocationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListScreen.swift; sourceTree = "<group>"; };
+		E41884082CC63E3C00CBCBDB /* LocationListScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListScreenState.swift; sourceTree = "<group>"; };
+		E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		E418840C2CC6448500CBCBDB /* LocationListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListResponse.swift; sourceTree = "<group>"; };
+		E418840E2CC6469700CBCBDB /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		E41884102CC646D600CBCBDB /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		E41884132CC726DE00CBCBDB /* LocationListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListUI.swift; sourceTree = "<group>"; };
+		E41884152CC726F000CBCBDB /* LocationDetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailUI.swift; sourceTree = "<group>"; };
+		E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
+		E418841A2CC78E7900CBCBDB /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		E418841C2CC899BE00CBCBDB /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailScreen.swift; sourceTree = "<group>"; };
+		E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewState.swift; sourceTree = "<group>"; };
+		E41884252CC8D68400CBCBDB /* AppProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressView.swift; sourceTree = "<group>"; };
+		E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMainScreen.swift; sourceTree = "<group>"; };
+		E418842A2CC9CE8C00CBCBDB /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A30D32CAA744200B839BF /* RickAndMortyAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIApp.swift; sourceTree = "<group>"; };
 		E48A30D72CAA744400B839BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +152,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E41884042CC63E0E00CBCBDB /* location */ = {
+			isa = PBXGroup;
+			children = (
+				E41884272CC8DD6E00CBCBDB /* main */,
+				E418841E2CC8CBFE00CBCBDB /* detail */,
+				E41884052CC63E1600CBCBDB /* list */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		E41884052CC63E1600CBCBDB /* list */ = {
+			isa = PBXGroup;
+			children = (
+				E41884062CC63E2A00CBCBDB /* LocationListScreen.swift */,
+				E41884082CC63E3C00CBCBDB /* LocationListScreenState.swift */,
+				E418840A2CC63E5300CBCBDB /* LocationListViewModel.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		E41884122CC726C300CBCBDB /* location */ = {
+			isa = PBXGroup;
+			children = (
+				E41884132CC726DE00CBCBDB /* LocationListUI.swift */,
+				E41884152CC726F000CBCBDB /* LocationDetailUI.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		E41884192CC78E6A00CBCBDB /* main */ = {
+			isa = PBXGroup;
+			children = (
+				E418841A2CC78E7900CBCBDB /* MainScreen.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		E418841E2CC8CBFE00CBCBDB /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				E418841F2CC8CC2F00CBCBDB /* LocationDetailScreen.swift */,
+				E41884212CC8CC4200CBCBDB /* LocationDetailViewModel.swift */,
+				E41884232CC8CC5500CBCBDB /* LocationDetailViewState.swift */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		E41884272CC8DD6E00CBCBDB /* main */ = {
+			isa = PBXGroup;
+			children = (
+				E41884282CC8EA2400CBCBDB /* LocationMainScreen.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
 		E48A30C72CAA744200B839BF = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				E48A30EC2CAB762200B839BF /* CharacterListResponse.swift */,
+				E418840C2CC6448500CBCBDB /* LocationListResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -230,6 +320,8 @@
 				E48A30F42CAB811D00B839BF /* CharacterList.swift */,
 				E48A30FA2CAB8AA900B839BF /* FailureError.swift */,
 				E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */,
+				E418840E2CC6469700CBCBDB /* LocationList.swift */,
+				E41884102CC646D600CBCBDB /* LocationDetail.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -265,6 +357,8 @@
 		E48A310E2CAD237E00B839BF /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				E41884192CC78E6A00CBCBDB /* main */,
+				E41884042CC63E0E00CBCBDB /* location */,
 				E4AF3ABE2CBF9446009C2998 /* character */,
 			);
 			path = screens;
@@ -286,6 +380,7 @@
 			children = (
 				E48A31192CAF89F400B839BF /* Colors.swift */,
 				E4D269C92CAFA08D00EACE69 /* Dimensions.swift */,
+				E418841C2CC899BE00CBCBDB /* AppTheme.swift */,
 			);
 			path = theme;
 			sourceTree = "<group>";
@@ -342,6 +437,7 @@
 		E4AF3ABF2CBF95E0009C2998 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				E41884122CC726C300CBCBDB /* location */,
 				E4AF3AC22CBF98E0009C2998 /* character */,
 			);
 			path = models;
@@ -380,6 +476,9 @@
 			children = (
 				E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */,
 				E41883FD2CC25A6000CBCBDB /* RefreshableScrollView.swift */,
+				E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */,
+				E41884252CC8D68400CBCBDB /* AppProgressView.swift */,
+				E418842A2CC9CE8C00CBCBDB /* BackButton.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -507,26 +606,43 @@
 				E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */,
 				E48A311A2CAF89F400B839BF /* Colors.swift in Sources */,
 				E41883FE2CC25A6000CBCBDB /* RefreshableScrollView.swift in Sources */,
+				E418841B2CC78E7900CBCBDB /* MainScreen.swift in Sources */,
+				E41884092CC63E3D00CBCBDB /* LocationListScreenState.swift in Sources */,
 				E4AF3AC12CBF95F9009C2998 /* CharacterDetailUI.swift in Sources */,
+				E41884262CC8D68400CBCBDB /* AppProgressView.swift in Sources */,
+				E41884182CC76FF700CBCBDB /* BottomNavigationView.swift in Sources */,
 				E41884002CC6273A00CBCBDB /* CharacterMainViewModel.swift in Sources */,
 				E4AF3ABD2CBF40C6009C2998 /* MatchedGeometryEffectIfNotNil.swift in Sources */,
 				E48A30FD2CABA8BC00B839BF /* HttpClient.swift in Sources */,
 				E48A310D2CACDAC800B839BF /* ErrorAlert.swift in Sources */,
 				E48A31072CACC8C900B839BF /* CharacterListScreen.swift in Sources */,
 				E4AF3AC42CBF9901009C2998 /* CharacterDetailUIExtensions.swift in Sources */,
+				E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */,
 				E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */,
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
+				E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */,
+				E41884142CC726DE00CBCBDB /* LocationListUI.swift in Sources */,
 				E48A30EF2CAB77D500B839BF /* CharacterListViewModel.swift in Sources */,
+				E41884162CC726F000CBCBDB /* LocationDetailUI.swift in Sources */,
 				E48A30F92CAB82EF00B839BF /* RickAndMortyApi.swift in Sources */,
 				E41883FC2CC2369B00CBCBDB /* TitledView.swift in Sources */,
+				E41884072CC63E2B00CBCBDB /* LocationListScreen.swift in Sources */,
+				E41884222CC8CC4300CBCBDB /* LocationDetailViewModel.swift in Sources */,
+				E41884202CC8CC2F00CBCBDB /* LocationDetailScreen.swift in Sources */,
+				E418842B2CC9CE8C00CBCBDB /* BackButton.swift in Sources */,
 				E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */,
 				E48A30F22CAB80DD00B839BF /* RickAndMortyInteractor.swift in Sources */,
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
 				E48A30F72CAB81E200B839BF /* RickAndMortyRepository.swift in Sources */,
 				E48A31052CACC7F100B839BF /* Extensions.swift in Sources */,
+				E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */,
 				E4A2C9892CBDED3300C7D29A /* CharacterMainScreen.swift in Sources */,
 				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
+				E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */,
+				E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */,
+				E418840B2CC63E5300CBCBDB /* LocationListViewModel.swift in Sources */,
 				E4A2C97C2CB8C4FE00C7D29A /* NeedleGenerated.swift in Sources */,
+				E41884292CC8EA2400CBCBDB /* LocationMainScreen.swift in Sources */,
 				E4AF3ACA2CBFA77C009C2998 /* CharacterListUI.swift in Sources */,
 				E4A2C9792CB8C2E100C7D29A /* RootComponent.swift in Sources */,
 				E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */,

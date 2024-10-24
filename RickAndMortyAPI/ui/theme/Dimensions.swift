@@ -13,4 +13,5 @@ struct Dimensions {
     static let cornerRadius: CGFloat = 16
     static let defaultCircusMarkSize: CGFloat = 10
     static let circleButtonSize: CGFloat = 40
+    static let menuSize: CGFloat = 30
 }

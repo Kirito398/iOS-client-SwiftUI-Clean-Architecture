@@ -26,6 +26,14 @@ struct RickAndMortyApi {
         try await apiClient.loadData(from: url)
     }
     
+    func fetchLocationList(by page: Int) async throws -> LocationListResponse {
+        try await apiClient.load(from: "location?page=\(page)")
+    }
+    
+    func fetchLocationDetail(by id: Int) async throws -> LocationListResponse.Location {
+        try await apiClient.load(from: "location/\(id)")
+    }
+    
 //    func fetchCharacterList() {
 //        apiClient.loadAsync(CharacterListResponse.self, from: "character") { result in
 //            

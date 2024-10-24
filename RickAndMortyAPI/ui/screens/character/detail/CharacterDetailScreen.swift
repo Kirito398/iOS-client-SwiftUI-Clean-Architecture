@@ -24,7 +24,7 @@ struct CharacterDetailScreen : AppView {
     var content: some View {
         RefreshableScrollView(
             isRefreshing: viewState.showProgressView,
-            progressView: progressView
+            progressView: AppProgressView()
         ) {
             if let characterDetail = viewState.characterDetail {
                 CharacterDetailView(
@@ -44,14 +44,6 @@ struct CharacterDetailScreen : AppView {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .background(Color.darkGray)
-        .foregroundColor(Color.white)
-    }
-    
-    private var progressView: some View {
-        ProgressView()
-            .tint(Color.lightOrange)
-            .padding()
     }
 }
 
@@ -64,7 +56,6 @@ private struct CharacterDetailView : View {
             avatar.zIndex(2)
             detail
         }
-        .padding(Dimensions.defaultPadding)
     }
     
     private var avatar: some View {
@@ -156,9 +147,9 @@ private struct CharacterDetailView : View {
 
 #Preview {
     CharacterDetailScreen(
-        viewModel: CharacterDetailViewModel(
-            interactor: RootComponent().domainComponent.rickAndMortyInteractor,
+        viewModel: RootComponent().uiComponent.getCharacterDetailViewModel(
             characterId: 1
         )
     )
+    .appTheme()
 }
