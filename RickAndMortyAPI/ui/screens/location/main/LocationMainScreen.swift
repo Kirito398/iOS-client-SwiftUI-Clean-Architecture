@@ -13,14 +13,16 @@ struct LocationMainScreen: AppView {
     
     private let uiComponent: UiComponentProtocol
     private let locationListViewModel: LocationListViewModel
+    private let geometryEffectNamespace: Namespace.ID?
     
-    @Namespace
-    private var geometryMatchedEffectNamespace
-    
-    init(uiComponent: UiComponentProtocol) {
+    init(
+        uiComponent: UiComponentProtocol,
+        geometryEffectNamespace: Namespace.ID? = nil
+    ) {
         self.uiComponent = uiComponent
         self.viewModel = uiComponent.locationMainViewModel
         self.locationListViewModel = uiComponent.locationListViewModel
+        self.geometryEffectNamespace = geometryEffectNamespace
     }
     
     var content: some View {
@@ -38,7 +40,7 @@ struct LocationMainScreen: AppView {
     private var list: some View {
         LocationListScreen(
             viewModel: locationListViewModel,
-            geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
+            geometryMatchedEffectNamespace: geometryEffectNamespace
         ) { locationDetail in
             showDetailSreen(locationDetail: locationDetail)
         }
@@ -57,7 +59,7 @@ struct LocationMainScreen: AppView {
                     viewModel: uiComponent.locationDetailViewModel(
                         locationDetail: locationDetail
                     ),
-                    geometryMatchedEffectNamespace: geometryMatchedEffectNamespace
+                    geometryMatchedEffectNamespace: geometryEffectNamespace
                 )
                 .zIndex(2)
             }

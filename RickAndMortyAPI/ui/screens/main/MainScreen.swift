@@ -15,12 +15,23 @@ struct MainScreen: View {
         rootComponent = RootComponent()
     }
     
+    @Namespace
+    private var geometryEffectNamespace
+    
     var body: some View {
         BottomNavigationView(menuList: MenuItem.allCases) { item in
             ZStack {
                 switch item {
-                case .CharacterList: CharacterMainScreen(uiComponent: rootComponent.uiComponent)
-                case .LocationList: LocationListScreen(viewModel: rootComponent.uiComponent.locationListViewModel)
+                case .CharacterList: 
+                    CharacterMainScreen(
+                        uiComponent: rootComponent.uiComponent,
+                        geometryEffectNamespace: geometryEffectNamespace
+                    )
+                case .LocationList:
+                    LocationMainScreen(
+                        uiComponent: rootComponent.uiComponent,
+                        geometryEffectNamespace: geometryEffectNamespace
+                    )
                 case .EpisodeList: Text("Episodes")
                 }
             }

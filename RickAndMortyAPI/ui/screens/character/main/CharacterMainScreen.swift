@@ -14,14 +14,16 @@ struct CharacterMainScreen: AppView {
     
     private var uiComponent: UiComponentProtocol
     private var characterListViewModel: CharacterListViewModel
+    private var geometryEffectNamespace: Namespace.ID?
     
-    @Namespace
-    private var geometryEffectNamespace
-    
-    init(uiComponent: UiComponentProtocol) {
+    init(
+        uiComponent: UiComponentProtocol,
+        geometryEffectNamespace: Namespace.ID? = nil
+    ) {
         self.viewModel = uiComponent.characterMainViewModel
         self.uiComponent = uiComponent
         self.characterListViewModel = uiComponent.characterListViewModel
+        self.geometryEffectNamespace = geometryEffectNamespace
     }
     
     var content: some View {
