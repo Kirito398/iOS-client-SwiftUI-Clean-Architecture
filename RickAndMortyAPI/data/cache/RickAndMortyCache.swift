@@ -15,11 +15,15 @@ final class RickAndMortyCache {
         self.cache = cache
     }
     
-    func getCharactersList() -> [CharacterDetail] {
-        cache.loadAll(CharacterObject.self).mapToDomain()
+    func getCharactersList() throws -> [CharacterDetail] {
+        try cache.loadAll(CharacterObject.self).mapToDomain()
     }
     
-    func saveCharacterList(list: [CharacterDetail]) throws {
+    func getCharacter(by characterId: Int) throws -> CharacterDetail {
+        try cache.load(CharacterObject.self, forPrimaryKey: characterId).mapToDomain()
+    }
+    
+    func saveCharacterList(_ list: [CharacterDetail]) throws {
         try cache.writeAll(list: list.mapToCache())
     }
 }

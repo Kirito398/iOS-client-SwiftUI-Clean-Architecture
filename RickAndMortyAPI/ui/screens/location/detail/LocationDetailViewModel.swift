@@ -28,9 +28,9 @@ class LocationDetailViewModel : ViewModel<LocationDetailViewState> {
     func fetchLocationDetail() {
         let locationId = viewState.locationId
         doTask { [weak self] in
-            try await self?.interactor.fetchLocationDetail(by: locationId).mapToUiModel()
+            await self?.interactor.fetchLocationDetail(by: locationId)
         } onResult: { [weak self] locationDetail in
-            self?.updateLocationDetail(locationDetail: locationDetail)
+            self?.updateLocationDetail(locationDetail: locationDetail.mapToUiModel())
         }
     }
     

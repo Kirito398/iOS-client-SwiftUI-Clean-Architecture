@@ -65,17 +65,17 @@
 		E4AF3ACD2CC0A5DF009C2998 /* CharacterAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF3ACC2CC0A5DF009C2998 /* CharacterAvatarView.swift */; };
 		E4D269CA2CAFA08E00EACE69 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269C92CAFA08D00EACE69 /* Dimensions.swift */; };
 		E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */; };
-		E4D269D02CB3C39800EACE69 /* PagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */; };
 		E4D269D32CB5194D00EACE69 /* CharacterDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D22CB5194D00EACE69 /* CharacterDetailScreen.swift */; };
 		E4D269D62CB51F0100EACE69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D52CB51F0100EACE69 /* Router.swift */; };
 		E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D72CB51F7500EACE69 /* Destination.swift */; };
 		E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */; };
 		E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */; };
-		E4D8AB302CCB713800D730F2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB2F2CCB713800D730F2 /* Realm */; };
-		E4D8AB322CCB713800D730F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB312CCB713800D730F2 /* RealmSwift */; };
 		E4D8AB352CCB717100D730F2 /* RickAndMortyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB342CCB717100D730F2 /* RickAndMortyCache.swift */; };
 		E4D8AB372CCB71AD00D730F2 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB362CCB71AD00D730F2 /* RealmService.swift */; };
 		E4D8AB3A2CCB879600D730F2 /* CharacterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB392CCB879600D730F2 /* CharacterObject.swift */; };
+		E4D8AB3D2CCF1ADA00D730F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */; };
+		E4D8AB3F2CCF228D00D730F2 /* PagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */; };
+		E4D8AB412CCF604600D730F2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB402CCF604600D730F2 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,7 +137,6 @@
 		E4AF3ACC2CC0A5DF009C2998 /* CharacterAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAvatarView.swift; sourceTree = "<group>"; };
 		E4D269C92CAFA08D00EACE69 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
-		E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
 		E4D269D22CB5194D00EACE69 /* CharacterDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailScreen.swift; sourceTree = "<group>"; };
 		E4D269D52CB51F0100EACE69 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E4D269D72CB51F7500EACE69 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -146,6 +145,8 @@
 		E4D8AB342CCB717100D730F2 /* RickAndMortyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCache.swift; sourceTree = "<group>"; };
 		E4D8AB362CCB71AD00D730F2 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E4D8AB392CCB879600D730F2 /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
+		E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
+		E4D8AB402CCF604600D730F2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4D8AB322CCB713800D730F2 /* RealmSwift in Frameworks */,
-				E4D8AB302CCB713800D730F2 /* Realm in Frameworks */,
+				E4D8AB3D2CCF1ADA00D730F2 /* RealmSwift in Frameworks */,
 				E4A2C9742CB8C24F00C7D29A /* NeedleFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +333,7 @@
 				E4A2C9832CB8EB8200C7D29A /* CharacterDetail.swift */,
 				E418840E2CC6469700CBCBDB /* LocationList.swift */,
 				E41884102CC646D600CBCBDB /* LocationDetail.swift */,
+				E4D8AB402CCF604600D730F2 /* Result.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -485,11 +486,11 @@
 		E4D269CE2CB3BF9D00EACE69 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				E4D269CF2CB3C39800EACE69 /* PagingScrollView.swift */,
 				E41883FD2CC25A6000CBCBDB /* RefreshableScrollView.swift */,
 				E41884172CC76FF700CBCBDB /* BottomNavigationView.swift */,
 				E41884252CC8D68400CBCBDB /* AppProgressView.swift */,
 				E418842A2CC9CE8C00CBCBDB /* BackButton.swift */,
+				E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -550,8 +551,7 @@
 			name = RickAndMortyAPI;
 			packageProductDependencies = (
 				E4A2C9732CB8C24F00C7D29A /* NeedleFoundation */,
-				E4D8AB2F2CCB713800D730F2 /* Realm */,
-				E4D8AB312CCB713800D730F2 /* RealmSwift */,
+				E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */,
 			);
 			productName = RickAndMortyAPI;
 			productReference = E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */;
@@ -583,7 +583,7 @@
 			mainGroup = E48A30C72CAA744200B839BF;
 			packageReferences = (
 				E4A2C9722CB8C24E00C7D29A /* XCRemoteSwiftPackageReference "needle" */,
-				E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				E4D8AB3B2CCF1ADA00D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E48A30D12CAA744200B839BF /* Products */;
 			projectDirPath = "";
@@ -633,8 +633,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AF3ACD2CC0A5DF009C2998 /* CharacterAvatarView.swift in Sources */,
+				E4D8AB412CCF604600D730F2 /* Result.swift in Sources */,
 				E48A31172CAE3BEB00B839BF /* CharacterInfoItemView.swift in Sources */,
-				E4D269D02CB3C39800EACE69 /* PagingScrollView.swift in Sources */,
 				E4D269CD2CB3762100EACE69 /* LoggerExtension.swift in Sources */,
 				E48A311A2CAF89F400B839BF /* Colors.swift in Sources */,
 				E41883FE2CC25A6000CBCBDB /* RefreshableScrollView.swift in Sources */,
@@ -681,6 +681,7 @@
 				E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */,
 				E4A2C9802CB8C6F800C7D29A /* DomainComponent.swift in Sources */,
 				E4AF3AC82CBF998E009C2998 /* CharacterDetailUIConverters.swift in Sources */,
+				E4D8AB3F2CCF228D00D730F2 /* PagingScrollView.swift in Sources */,
 				E48A30F52CAB811D00B839BF /* CharacterList.swift in Sources */,
 				E4A2C9822CB8CA4700C7D29A /* DataComponent.swift in Sources */,
 				E4AF3AC62CBF995E009C2998 /* CharacterDetailUISamples.swift in Sources */,
@@ -912,7 +913,7 @@
 				minimumVersion = 0.25.0;
 			};
 		};
-		E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		E4D8AB3B2CCF1ADA00D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
@@ -928,14 +929,9 @@
 			package = E4A2C9722CB8C24E00C7D29A /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
 		};
-		E4D8AB2F2CCB713800D730F2 /* Realm */ = {
+		E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		E4D8AB312CCB713800D730F2 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = E4D8AB3B2CCF1ADA00D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

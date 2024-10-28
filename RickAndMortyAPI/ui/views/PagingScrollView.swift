@@ -46,14 +46,16 @@ struct PagingScrollView<Item : Identifiable, ItemView : View> : View {
                 createItemView(item)
             }
             
-            loadingProgressView
-                .onAppear() {
-                    isBottomProgressViewShowed = true
-                    loadNewPage?()
-                }
-                .onDisappear() {
-                    isBottomProgressViewShowed = false
-                }
+            if !items.isEmpty {
+                loadingProgressView
+                    .onAppear() {
+                        isBottomProgressViewShowed = true
+                        loadNewPage?()
+                    }
+                    .onDisappear() {
+                        isBottomProgressViewShowed = false
+                    }
+            }
         }
     }
     

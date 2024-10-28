@@ -30,9 +30,13 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     
     private func fetchCharacterList(by pageNumber: Int = 1, isForce: Bool = false) {
         doTask { [weak self] in
-            try await self?.interactor.fetchCharacterList(by: pageNumber).mapToUIModel()
+            await self?.interactor.fetchCharacterList(by: pageNumber)
         } onResult: { [weak self] result in
-            self?.updateCharacterListWithPageNumber(by: result, with: pageNumber, isForce: isForce)
+            self?.updateCharacterListWithPageNumber(
+                by: result.mapToUIModel(),
+                with: pageNumber,
+                isForce: isForce
+            )
         }
     }
     

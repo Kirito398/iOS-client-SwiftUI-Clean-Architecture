@@ -29,9 +29,13 @@ class LocationListViewModel : ViewModel<LocationListScreenState> {
     
     private func fetchLocationList(by page: Int = 1, isForce: Bool = false) {
         doTask { [weak self] in
-            try await self?.interactor.fetchLocationList(by: page).mapToUiModel()
+            await self?.interactor.fetchLocationList(by: page)
         } onResult: { [weak self] result in
-            self?.updateLocationListWithCurrentPage(result, currentPage: page, isForce: isForce)
+            self?.updateLocationListWithCurrentPage(
+                result.mapToUiModel(),
+                currentPage: page,
+                isForce: isForce
+            )
         }
     }
     

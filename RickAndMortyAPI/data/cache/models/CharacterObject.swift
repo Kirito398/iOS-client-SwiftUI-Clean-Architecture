@@ -20,11 +20,13 @@ class CharacterObject : Object {
     @Persisted var origin: Origin?
     @Persisted var location: Location?
     
+    @objc(Origin)
     class Origin : Object {
         @Persisted(primaryKey: true) var id: Int
         @Persisted var name: String
     }
     
+    @objc(Location)
     class Location : Object {
         @Persisted(primaryKey: true) var id: Int
         @Persisted var name: String
@@ -139,6 +141,7 @@ extension CharacterDetail {
         object.type = self.type
         object.gender = self.gender.mapToCache()
         object.image = self.image
+        object.avatar = self.avatar.mapToCache()
         object.origin = self.origin.mapToCache()
         object.location = self.location.mapToCache()
         return object
@@ -188,6 +191,15 @@ extension CharacterDetail.Gender {
         case .female: CharacterObject.Gender.Female
         case .male: CharacterObject.Gender.Male
         case .genderless: CharacterObject.Gender.Genderless
+        }
+    }
+}
+
+extension CharacterDetail.CharacterAvatar {
+    func mapToCache() -> Data? {
+        switch self {
+        case .cached(let imageData): imageData
+        case .failed: nil
         }
     }
 }

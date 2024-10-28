@@ -18,3 +18,7 @@ struct CharacterList {
         let prev: String
     }
 }
+
+extension CharacterList.Info {
+    static let defaultValue = Self.init(count: 1, pages: 1, next: "", prev: "")
+}
