@@ -71,6 +71,11 @@
 		E4D269D82CB51F7500EACE69 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D72CB51F7500EACE69 /* Destination.swift */; };
 		E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */; };
 		E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */; };
+		E4D8AB302CCB713800D730F2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB2F2CCB713800D730F2 /* Realm */; };
+		E4D8AB322CCB713800D730F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB312CCB713800D730F2 /* RealmSwift */; };
+		E4D8AB352CCB717100D730F2 /* RickAndMortyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB342CCB717100D730F2 /* RickAndMortyCache.swift */; };
+		E4D8AB372CCB71AD00D730F2 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB362CCB71AD00D730F2 /* RealmService.swift */; };
+		E4D8AB3A2CCB879600D730F2 /* CharacterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB392CCB879600D730F2 /* CharacterObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +143,9 @@
 		E4D269D72CB51F7500EACE69 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		E4D269D92CB60C5C00EACE69 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		E4D269DB2CB60C8000EACE69 /* CharacterDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewState.swift; sourceTree = "<group>"; };
+		E4D8AB342CCB717100D730F2 /* RickAndMortyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCache.swift; sourceTree = "<group>"; };
+		E4D8AB362CCB71AD00D730F2 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E4D8AB392CCB879600D730F2 /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D8AB322CCB713800D730F2 /* RealmSwift in Frameworks */,
+				E4D8AB302CCB713800D730F2 /* Realm in Frameworks */,
 				E4A2C9742CB8C24F00C7D29A /* NeedleFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +283,7 @@
 		E48A30E42CAA761F00B839BF /* data */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8AB332CCB714C00D730F2 /* cache */,
 				E48A30E92CAA984500B839BF /* repositories */,
 				E48A30E62CAA937E00B839BF /* api */,
 			);
@@ -502,6 +513,24 @@
 			path = navigation;
 			sourceTree = "<group>";
 		};
+		E4D8AB332CCB714C00D730F2 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8AB382CCB84CD00D730F2 /* models */,
+				E4D8AB342CCB717100D730F2 /* RickAndMortyCache.swift */,
+				E4D8AB362CCB71AD00D730F2 /* RealmService.swift */,
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
+		E4D8AB382CCB84CD00D730F2 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8AB392CCB879600D730F2 /* CharacterObject.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,6 +550,8 @@
 			name = RickAndMortyAPI;
 			packageProductDependencies = (
 				E4A2C9732CB8C24F00C7D29A /* NeedleFoundation */,
+				E4D8AB2F2CCB713800D730F2 /* Realm */,
+				E4D8AB312CCB713800D730F2 /* RealmSwift */,
 			);
 			productName = RickAndMortyAPI;
 			productReference = E48A30D02CAA744200B839BF /* RickAndMortyAPI.app */;
@@ -552,6 +583,7 @@
 			mainGroup = E48A30C72CAA744200B839BF;
 			packageReferences = (
 				E4A2C9722CB8C24E00C7D29A /* XCRemoteSwiftPackageReference "needle" */,
+				E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E48A30D12CAA744200B839BF /* Products */;
 			projectDirPath = "";
@@ -620,6 +652,7 @@
 				E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */,
 				E4D269DA2CB60C5C00EACE69 /* CharacterDetailViewModel.swift in Sources */,
 				E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */,
+				E4D8AB3A2CCB879600D730F2 /* CharacterObject.swift in Sources */,
 				E418840F2CC6469700CBCBDB /* LocationList.swift in Sources */,
 				E41884142CC726DE00CBCBDB /* LocationListUI.swift in Sources */,
 				E48A30EF2CAB77D500B839BF /* CharacterListViewModel.swift in Sources */,
@@ -658,9 +691,11 @@
 				E48A30D42CAA744200B839BF /* RickAndMortyAPIApp.swift in Sources */,
 				E48A310A2CACC99A00B839BF /* AppView.swift in Sources */,
 				E4D269D32CB5194D00EACE69 /* CharacterDetailScreen.swift in Sources */,
+				E4D8AB372CCB71AD00D730F2 /* RealmService.swift in Sources */,
 				E48A31132CAD24E200B839BF /* ViewState.swift in Sources */,
 				E48A30FB2CAB8AA900B839BF /* FailureError.swift in Sources */,
 				E48A30ED2CAB762200B839BF /* CharacterListResponse.swift in Sources */,
+				E4D8AB352CCB717100D730F2 /* RickAndMortyCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +912,14 @@
 				minimumVersion = 0.25.0;
 			};
 		};
+		E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 10.54.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -884,6 +927,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4A2C9722CB8C24E00C7D29A /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		E4D8AB2F2CCB713800D730F2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E4D8AB312CCB713800D730F2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4D8AB2E2CCB713800D730F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

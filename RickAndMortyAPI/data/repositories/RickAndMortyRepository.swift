@@ -8,14 +8,16 @@
 import Foundation
 
 struct RickAndMortyRepository {
-    private let rickAndMortyApi: RickAndMortyApi
+    private let api: RickAndMortyApi
+    private let cache: RickAndMortyCache
     
-    init(rickAndMortyApi: RickAndMortyApi) {
-        self.rickAndMortyApi = rickAndMortyApi
+    init(api: RickAndMortyApi, cache: RickAndMortyCache) {
+        self.api = api
+        self.cache = cache
     }
     
     func fetchCharacterList(by page: Int) async throws -> CharacterList {
-        let response = try await rickAndMortyApi.fetchCharacterList(by: page)
+        let response = try await api.fetchCharacterList(by: page)
         
         var characterList: [CharacterDetail] = []
         
@@ -32,15 +34,14 @@ struct RickAndMortyRepository {
     }
     
     func fetchCharacterDetail(by id: Int) async throws -> CharacterDetail {
-        //try await rickAndMortyApi.fetchCharacterDetail(by: id).mapToDomain()
-        let response = try await rickAndMortyApi.fetchCharacterDetail(by: id)
+        let response = try await api.fetchCharacterDetail(by: id)
         let avatar = try await loadCharacterAvatar(by: response.image)
         return try response.mapToDomain(avatar: avatar)
     }
     
     func loadCharacterAvatar(by stringURL: String) async throws -> CharacterDetail.CharacterAvatar {
         if let imageURL = URL(string: stringURL) {
-            let response = try await rickAndMortyApi.loadImageData(by: imageURL)
+            let response = try await api.loadImageData(by: imageURL)
             return CharacterDetail.CharacterAvatar.cached(imageData: response)
         } else {
             return CharacterDetail.CharacterAvatar.failed
@@ -48,10 +49,10 @@ struct RickAndMortyRepository {
     }
     
     func fetchLocationList(by page: Int) async throws -> LocationList {
-        try await rickAndMortyApi.fetchLocationList(by: page).mapToDomain()
+        try await api.fetchLocationList(by: page).mapToDomain()
     }
     
     func fetchLocationDetail(by id: Int) async throws -> LocationDetail {
-        try await rickAndMortyApi.fetchLocationDetail(by: id).mapToDomain()
+        try await api.fetchLocationDetail(by: id).mapToDomain()
     }
 }
