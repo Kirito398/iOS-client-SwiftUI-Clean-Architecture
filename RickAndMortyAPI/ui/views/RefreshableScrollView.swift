@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct RefreshableScrollView<Content : View, Progress : View>: View {
-    private let amountToPullBeforeRefreshing: CGFloat = 180
+    private let amountToPullBeforeRefreshing: CGFloat = 80
+    private let amountToStartRefreshing: CGFloat = 50
+    private let coordinateSpacename: String = "RefreshableScrollViewSpacename"
     
     var isRefreshing: Bool
     let progressView: Progress
     let content: Content
     private var onRefresh: (() -> Void)?
+    
+    @State
+    private var isNeedRefreshing: Bool = false
     
     init(isRefreshing: Bool, progressView: Progress, @ViewBuilder content: () -> Content) {
         self.isRefreshing = isRefreshing
@@ -23,27 +28,37 @@ struct RefreshableScrollView<Content : View, Progress : View>: View {
     
     var body: some View {
         ScrollView {
-            if isRefreshing {
+            GeometryReader { geometry in
+                if geometry.frame(in: .named(coordinateSpacename)).midY > amountToPullBeforeRefreshing {
+                    Spacer()
+                        .onAppear() {
+                            withAnimation {
+                                isNeedRefreshing = true
+                            }
+                        }
+                } else if geometry.frame(in: .named(coordinateSpacename)).midY < amountToStartRefreshing {
+                    Spacer()
+                        .onAppear() {
+                            if isNeedRefreshing {
+                                onRefresh?()
+                            }
+                        }
+                }
+            }
+            .padding(.top, -amountToStartRefreshing)
+            .onChange(of: isRefreshing) { _, newValue in
+                if !newValue {
+                    withAnimation {
+                        isNeedRefreshing = false
+                    }
+                }
+            }
+            
+            if isNeedRefreshing {
                 progressView
             }
             
             content
-                .background {
-                    GeometryReader { geometry in
-                        let currentScrollPosition = -geometry.frame(in: .global).origin.y
-                        
-                        if currentScrollPosition < -amountToPullBeforeRefreshing && !isRefreshing {
-                            Color.clear.preference(
-                                key: RefreshViewOffsetKey.self,
-                                value: currentScrollPosition
-                            )
-                        }
-                    }
-                }
-        }.onPreferenceChange(RefreshViewOffsetKey.self) { scrollPosition in
-            if scrollPosition < -amountToPullBeforeRefreshing && !isRefreshing {
-                onRefresh?()
-            }
         }
     }
 }
@@ -56,9 +71,9 @@ extension RefreshableScrollView {
     }
 }
 
-struct RefreshViewOffsetKey : PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value += nextValue()
-    }
+#Preview {
+    CharacterListScreen(
+        viewModel: RootComponent().uiComponent.characterListViewModel
+    )
+    .appTheme()
 }
