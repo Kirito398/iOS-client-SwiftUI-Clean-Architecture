@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PagingScrollView<Item : Identifiable, ItemView : View> : View {
-    var isRefreshing: Bool = false
-    var onRefresh: (() -> Void)?
+    private var isRefreshing: Bool = false
+    private var hasNextPage: Bool = false
+    private var onRefresh: (() -> Void)?
     
-    var items: [Item]
-    var createItemView: ((Item) -> ItemView)
+    private var items: [Item]
+    private var createItemView: ((Item) -> ItemView)
     private var loadNewPage: (() -> Void)?
     
     @State
@@ -20,10 +21,12 @@ struct PagingScrollView<Item : Identifiable, ItemView : View> : View {
     
     init(
         isRefreshing: Bool = false,
+        hasNextPage: Bool = false,
         items: [Item],
         createItemView: @escaping (Item) -> ItemView
     ) {
         self.isRefreshing = isRefreshing
+        self.hasNextPage = hasNextPage
         self.items = items
         self.createItemView = createItemView
     }
@@ -46,7 +49,7 @@ struct PagingScrollView<Item : Identifiable, ItemView : View> : View {
                 createItemView(item)
             }
             
-            if !items.isEmpty {
+            if !items.isEmpty && hasNextPage {
                 loadingProgressView
                     .onAppear() {
                         isBottomProgressViewShowed = true

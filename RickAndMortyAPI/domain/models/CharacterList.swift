@@ -20,5 +20,5 @@ struct CharacterList {
 }
 
 extension CharacterList.Info {
-    static let defaultValue = Self.init(count: 1, pages: 1, next: "", prev: "")
+    static let defaultValue = Self.init(count: 0, pages: 0, next: "", prev: "")
 }

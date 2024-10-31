@@ -59,7 +59,7 @@ struct RefreshableScrollView<Content : View, Progress : View>: View {
             }
             
             content
-        }
+        }.coordinateSpace(name: coordinateSpacename)
     }
 }
 

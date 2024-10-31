@@ -55,10 +55,6 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
         viewState.mutate(by: mutation)
     }
     
-    func updateErrorMessage(failure: FailureError?) {
-        viewState.updateErrorMessage(failure: failure)
-    }
-    
     func clearErrorMessage() {
         viewState.clearErrorMessage()
     }

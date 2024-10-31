@@ -21,10 +21,8 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     }
     
     func loadNextPage() {
-        let nextPageNumber = viewState.currentPage + 1
-        
-        if nextPageNumber <= viewState.pagesNumber {
-            fetchCharacterList(by: nextPageNumber)
+        if viewState.hasNextPage {
+            fetchCharacterList(by: viewState.currentPage + 1)
         }
     }
     
@@ -48,7 +46,7 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
         let newList = if isForce {
             listInfo.list
         } else {
-            viewState.characterList + listInfo.list
+            viewState.characterList.addWithoutDuplicates(listInfo.list)
         }
         
         mutate { state in

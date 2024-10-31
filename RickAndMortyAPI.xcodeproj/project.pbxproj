@@ -40,10 +40,10 @@
 		E48A30FB2CAB8AA900B839BF /* FailureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30FA2CAB8AA900B839BF /* FailureError.swift */; };
 		E48A30FD2CABA8BC00B839BF /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30FC2CABA8BC00B839BF /* HttpClient.swift */; };
 		E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A30FE2CABB73500B839BF /* ViewModel.swift */; };
-		E48A31052CACC7F100B839BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31042CACC7F100B839BF /* Extensions.swift */; };
+		E48A31052CACC7F100B839BF /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31042CACC7F100B839BF /* UIExtensions.swift */; };
 		E48A31072CACC8C900B839BF /* CharacterListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31062CACC8C900B839BF /* CharacterListScreen.swift */; };
 		E48A310A2CACC99A00B839BF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31092CACC99A00B839BF /* AppView.swift */; };
-		E48A310D2CACDAC800B839BF /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A310C2CACDAC800B839BF /* ErrorAlert.swift */; };
+		E48A310D2CACDAC800B839BF /* FailureAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A310C2CACDAC800B839BF /* FailureAlert.swift */; };
 		E48A31112CAD249B00B839BF /* CharacterListScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31102CAD249B00B839BF /* CharacterListScreenState.swift */; };
 		E48A31132CAD24E200B839BF /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31122CAD24E200B839BF /* ViewState.swift */; };
 		E48A31172CAE3BEB00B839BF /* CharacterInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A31162CAE3BEB00B839BF /* CharacterInfoItemView.swift */; };
@@ -76,7 +76,23 @@
 		E4D8AB3D2CCF1ADA00D730F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */; };
 		E4D8AB3F2CCF228D00D730F2 /* PagingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */; };
 		E4D8AB412CCF604600D730F2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB402CCF604600D730F2 /* Result.swift */; };
+		E4D8AB422CD1FFE700D730F2 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E4D8AB452CD20BB200D730F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB442CD20BB200D730F2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E4D8AB432CD1FFE700D730F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E4D8AB422CD1FFE700D730F2 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E41883FB2CC2369B00CBCBDB /* TitledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledView.swift; sourceTree = "<group>"; };
@@ -113,10 +129,10 @@
 		E48A30FA2CAB8AA900B839BF /* FailureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureError.swift; sourceTree = "<group>"; };
 		E48A30FC2CABA8BC00B839BF /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		E48A30FE2CABB73500B839BF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		E48A31042CACC7F100B839BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E48A31042CACC7F100B839BF /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		E48A31062CACC8C900B839BF /* CharacterListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreen.swift; sourceTree = "<group>"; };
 		E48A31092CACC99A00B839BF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		E48A310C2CACDAC800B839BF /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		E48A310C2CACDAC800B839BF /* FailureAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureAlert.swift; sourceTree = "<group>"; };
 		E48A31102CAD249B00B839BF /* CharacterListScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreenState.swift; sourceTree = "<group>"; };
 		E48A31122CAD24E200B839BF /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		E48A31162CAE3BEB00B839BF /* CharacterInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoItemView.swift; sourceTree = "<group>"; };
@@ -147,6 +163,7 @@
 		E4D8AB392CCB879600D730F2 /* CharacterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObject.swift; sourceTree = "<group>"; };
 		E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
 		E4D8AB402CCF604600D730F2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		E4D8AB442CD20BB200D730F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,7 +358,7 @@
 		E48A31032CACC7E400B839BF /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				E48A31042CACC7F100B839BF /* Extensions.swift */,
+				E48A31042CACC7F100B839BF /* UIExtensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -359,7 +376,7 @@
 		E48A310B2CACDAA600B839BF /* modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				E48A310C2CACDAC800B839BF /* ErrorAlert.swift */,
+				E48A310C2CACDAC800B839BF /* FailureAlert.swift */,
 				E4AF3ABC2CBF40C6009C2998 /* MatchedGeometryEffectIfNotNil.swift */,
 				E41883FB2CC2369B00CBCBDB /* TitledView.swift */,
 			);
@@ -479,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D269CC2CB3762100EACE69 /* LoggerExtension.swift */,
+				E4D8AB442CD20BB200D730F2 /* Extensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -543,6 +561,7 @@
 				E48A30CD2CAA744200B839BF /* Frameworks */,
 				E48A30CE2CAA744200B839BF /* Resources */,
 				E4A2C97A2CB8C3C800C7D29A /* Needle Generator */,
+				E4D8AB432CD1FFE700D730F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -646,7 +665,7 @@
 				E41884002CC6273A00CBCBDB /* CharacterMainViewModel.swift in Sources */,
 				E4AF3ABD2CBF40C6009C2998 /* MatchedGeometryEffectIfNotNil.swift in Sources */,
 				E48A30FD2CABA8BC00B839BF /* HttpClient.swift in Sources */,
-				E48A310D2CACDAC800B839BF /* ErrorAlert.swift in Sources */,
+				E48A310D2CACDAC800B839BF /* FailureAlert.swift in Sources */,
 				E48A31072CACC8C900B839BF /* CharacterListScreen.swift in Sources */,
 				E4AF3AC42CBF9901009C2998 /* CharacterDetailUIExtensions.swift in Sources */,
 				E41884242CC8CC5500CBCBDB /* LocationDetailViewState.swift in Sources */,
@@ -663,11 +682,12 @@
 				E41884222CC8CC4300CBCBDB /* LocationDetailViewModel.swift in Sources */,
 				E41884202CC8CC2F00CBCBDB /* LocationDetailScreen.swift in Sources */,
 				E418842B2CC9CE8C00CBCBDB /* BackButton.swift in Sources */,
+				E4D8AB452CD20BB200D730F2 /* Extensions.swift in Sources */,
 				E48A30FF2CABB73500B839BF /* ViewModel.swift in Sources */,
 				E48A30F22CAB80DD00B839BF /* RickAndMortyInteractor.swift in Sources */,
 				E4D269DC2CB60C8000EACE69 /* CharacterDetailViewState.swift in Sources */,
 				E48A30F72CAB81E200B839BF /* RickAndMortyRepository.swift in Sources */,
-				E48A31052CACC7F100B839BF /* Extensions.swift in Sources */,
+				E48A31052CACC7F100B839BF /* UIExtensions.swift in Sources */,
 				E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */,
 				E4A2C9892CBDED3300C7D29A /* CharacterMainScreen.swift in Sources */,
 				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
@@ -830,6 +850,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyAPI/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YXB2C4HG8;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -859,6 +880,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyAPI/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YXB2C4HG8;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

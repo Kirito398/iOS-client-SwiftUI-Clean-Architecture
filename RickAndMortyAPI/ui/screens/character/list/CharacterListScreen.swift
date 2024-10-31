@@ -56,6 +56,7 @@ struct CharacterListScreen: AppView {
     private var characterList: some View {
         PagingScrollView(
             isRefreshing: viewState.showProgressView,
+            hasNextPage: viewState.hasNextPage,
             items: viewState.characterList
         ) { character in
             CharacterInfoItemView(
