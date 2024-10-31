@@ -13,6 +13,10 @@ struct LocationListScreenState : ViewState {
     private(set) var locationList: [LocationDetailUI] = []
     private(set) var currentPage: Int = 0
     private(set) var pagesNumber: Int = 1
+    
+    var hasNextPage: Bool {
+        currentPage < pagesNumber
+    }
 }
 
 extension LocationListScreenState {

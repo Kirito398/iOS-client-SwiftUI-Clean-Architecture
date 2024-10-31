@@ -27,3 +27,9 @@ struct LocationDetailUI : Identifiable {
         }
     }
 }
+
+extension LocationDetailUI : Equatable {
+    static func == (lhs: LocationDetailUI, rhs: LocationDetailUI) -> Bool {
+        lhs.id == rhs.id
+    }
+}

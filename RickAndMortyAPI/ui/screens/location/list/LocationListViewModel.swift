@@ -20,10 +20,8 @@ class LocationListViewModel : ViewModel<LocationListScreenState> {
     }
     
     func loadNextPage() {
-        let nextPage = viewState.currentPage + 1
-        
-        if (nextPage <= viewState.pagesNumber) {
-            fetchLocationList(by: nextPage)
+        if viewState.hasNextPage {
+            fetchLocationList(by: viewState.currentPage + 1)
         }
     }
     
@@ -47,7 +45,7 @@ class LocationListViewModel : ViewModel<LocationListScreenState> {
         let newList = if isForce {
             listInfo.list
         } else {
-            viewState.locationList + listInfo.list
+            viewState.locationList.addWithoutDuplicates(listInfo.list)
         }
         
         mutate { viewState in

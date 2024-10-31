@@ -17,3 +17,7 @@ struct LocationList {
         let prev: String
     }
 }
+
+extension LocationList.Info {
+    static let defaultValue = Self.init(pages: 0, next: "", prev: "")
+}

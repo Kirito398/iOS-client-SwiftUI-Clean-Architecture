@@ -78,6 +78,7 @@
 		E4D8AB412CCF604600D730F2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB402CCF604600D730F2 /* Result.swift */; };
 		E4D8AB422CD1FFE700D730F2 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = E4D8AB3C2CCF1ADA00D730F2 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E4D8AB452CD20BB200D730F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB442CD20BB200D730F2 /* Extensions.swift */; };
+		E4D8AB472CD35B6B00D730F2 /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8AB462CD35B6B00D730F2 /* LocationObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -164,6 +165,7 @@
 		E4D8AB3E2CCF228D00D730F2 /* PagingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingScrollView.swift; sourceTree = "<group>"; };
 		E4D8AB402CCF604600D730F2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E4D8AB442CD20BB200D730F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E4D8AB462CD35B6B00D730F2 /* LocationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D8AB392CCB879600D730F2 /* CharacterObject.swift */,
+				E4D8AB462CD35B6B00D730F2 /* LocationObject.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				E48A31052CACC7F100B839BF /* UIExtensions.swift in Sources */,
 				E418840D2CC6448500CBCBDB /* LocationListResponse.swift in Sources */,
 				E4A2C9892CBDED3300C7D29A /* CharacterMainScreen.swift in Sources */,
+				E4D8AB472CD35B6B00D730F2 /* LocationObject.swift in Sources */,
 				E4A2C9842CB8EB8200C7D29A /* CharacterDetail.swift in Sources */,
 				E41884112CC646D600CBCBDB /* LocationDetail.swift in Sources */,
 				E418841D2CC899BE00CBCBDB /* AppTheme.swift in Sources */,
