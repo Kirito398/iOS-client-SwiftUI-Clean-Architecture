@@ -25,8 +25,37 @@ struct LocationListScreen: AppView {
     }
     
     var content: some View {
+        if viewState.locationList.isEmpty {
+            emptyList
+                .onAppear() {
+                    viewModel.refreshLocationList()
+                }
+        } else {
+            locationList
+        }
+    }
+    
+    private var emptyList: some View {
+        VStack(alignment: .center) {
+            if viewState.showProgressView {
+                loadingProgressView
+            } else {
+                Text("No data")
+                    .fontWeight(.bold)
+                
+               refreshButton
+            }
+        }
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity
+        )
+    }
+    
+    var locationList: some View {
         PagingScrollView(
             isRefreshing: viewState.showProgressView,
+            hasNextPage: viewState.hasNextPage,
             items: viewState.locationList
         ) { locationDetail in
             LocationListItemView(
@@ -44,6 +73,24 @@ struct LocationListScreen: AppView {
             viewModel.refreshLocationList()
         }
         .scrollIndicators(.hidden)
+    }
+    
+    private var loadingProgressView: some View {
+        ProgressView()
+            .tint(Color.lightOrange)
+            .padding()
+    }
+    
+    private var refreshButton: some View {
+        Button {
+            viewModel.refreshLocationList()
+        } label: {
+            HStack {
+                Text("Refresh")
+                Image(systemName: "arrow.clockwise")
+            }
+            .foregroundColor(Color.lightOrange)
+        }
     }
 }
 

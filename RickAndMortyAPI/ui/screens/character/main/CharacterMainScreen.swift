@@ -30,8 +30,8 @@ struct CharacterMainScreen: AppView {
         ZStack {
             //TODO: Trouble with matchedGeometryEffect (double views)
             characterListView
-                    .zIndex(1)
-                    .opacity(viewState.currentScreen.isDetail() ? 0 : 1)
+                .zIndex(1)
+                .opacity(viewState.currentScreen.isDetail() ? 0 : 1)
             
             if viewState.currentScreen.isDetail() {
                 characterDetailView

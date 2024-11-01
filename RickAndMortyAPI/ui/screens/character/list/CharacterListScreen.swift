@@ -26,8 +26,37 @@ struct CharacterListScreen: AppView {
     }
     
     var content: some View {
+        if viewState.characterList.isEmpty {
+            emptyList
+                .onAppear() {
+                    viewModel.refreshCharacterList()
+                }
+        } else {
+            characterList
+        }
+    }
+    
+    private var emptyList: some View {
+        VStack(alignment: .center) {
+            if viewState.showProgressView {
+                loadingProgressView
+            } else {
+                Text("No data")
+                    .fontWeight(.bold)
+                
+               refreshButton
+            }
+        }
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity
+        )
+    }
+    
+    private var characterList: some View {
         PagingScrollView(
             isRefreshing: viewState.showProgressView,
+            hasNextPage: viewState.hasNextPage,
             items: viewState.characterList
         ) { character in
             CharacterInfoItemView(
@@ -45,6 +74,24 @@ struct CharacterListScreen: AppView {
             viewModel.refreshCharacterList()
         }
         .scrollIndicators(.hidden)
+    }
+    
+    private var loadingProgressView: some View {
+        ProgressView()
+            .tint(Color.lightOrange)
+            .padding()
+    }
+    
+    private var refreshButton: some View {
+        Button {
+            viewModel.refreshCharacterList()
+        } label: {
+            HStack {
+                Text("Refresh")
+                Image(systemName: "arrow.clockwise")
+            }
+            .foregroundColor(Color.lightOrange)
+        }
     }
 }
 

@@ -17,50 +17,45 @@ class ViewModel<ViewStateType> where ViewStateType : ViewState {
     private(set) var viewState: ViewStateType
     
     func doTask<D>(
-        _ body: @escaping () async throws -> D?,
+        _ body: @escaping () async -> Result<D>?,
         onResult callback: @escaping (D) -> Void
     ) {
         showProgressView(true)
         Task {
-            do {
-                if let result = try await body() {
-                    DispatchQueue.main.async { [weak self] in
-                        callback(result)
-                        self?.showProgressView(false)
-                    }
-                }
-            } catch let failure as FailureError {
-                failure.errorMessage.errorLog()
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.updateErrorMessage(failure: failure)
-                    self?.showProgressView(false)
-                }
-            } catch {
-                let failure = FailureError.unknown(error: error.localizedDescription)
-                failure.errorMessage.errorLog()
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.updateErrorMessage(failure: failure)
-                    self?.showProgressView(false)
+            if let result = await body() {
+                switch result {
+                case .Success(let data): accessResult(data, onResult: callback)
+                case .Failure(let data, let error): accessResult(data, error: error, onResult: callback)
                 }
             }
         }
+    }
+    
+    private func accessResult<D>(
+        _ result: D?,
+        error: FailureError? = nil,
+        onResult callback: @escaping (D) -> Void
+    ) {
+        DispatchQueue.main.async { [weak self] in
+            self?.mutate { state in
+                state.updateErrorMessage(failure: error)
+                state.showProgressView(false)
+            }
+            if let resultData = result {
+                callback(resultData)
+            }
+        }
+    }
+    
+    private func showProgressView(_ isShow: Bool) {
+        viewState.showProgressView(isShow)
     }
     
     func mutate(by mutation: (inout ViewStateType) -> Void) {
         viewState.mutate(by: mutation)
     }
     
-    func updateErrorMessage(failure: FailureError?) {
-        viewState.updateErrorMessage(failure: failure)
-    }
-    
     func clearErrorMessage() {
         viewState.clearErrorMessage()
-    }
-    
-    private func showProgressView(_ isShow: Bool) {
-        viewState.showProgressView(isShow)
     }
 }

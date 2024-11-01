@@ -21,18 +21,20 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     }
     
     func loadNextPage() {
-        let nextPageNumber = viewState.currentPage + 1
-        
-        if nextPageNumber <= viewState.pagesNumber {
-            fetchCharacterList(by: nextPageNumber)
+        if viewState.hasNextPage {
+            fetchCharacterList(by: viewState.currentPage + 1)
         }
     }
     
     private func fetchCharacterList(by pageNumber: Int = 1, isForce: Bool = false) {
         doTask { [weak self] in
-            try await self?.interactor.fetchCharacterList(by: pageNumber).mapToUIModel()
+            await self?.interactor.fetchCharacterList(by: pageNumber)
         } onResult: { [weak self] result in
-            self?.updateCharacterListWithPageNumber(by: result, with: pageNumber, isForce: isForce)
+            self?.updateCharacterListWithPageNumber(
+                by: result.mapToUIModel(),
+                with: pageNumber,
+                isForce: isForce
+            )
         }
     }
     
@@ -44,7 +46,7 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
         let newList = if isForce {
             listInfo.list
         } else {
-            viewState.characterList + listInfo.list
+            viewState.characterList.addWithoutDuplicates(listInfo.list)
         }
         
         mutate { state in

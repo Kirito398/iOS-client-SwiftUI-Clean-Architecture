@@ -68,3 +68,9 @@ struct CharacterDetailUI : Identifiable {
         }
     }
 }
+
+extension CharacterDetailUI : Equatable {
+    static func ==(lhs: CharacterDetailUI, rhs: CharacterDetailUI) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

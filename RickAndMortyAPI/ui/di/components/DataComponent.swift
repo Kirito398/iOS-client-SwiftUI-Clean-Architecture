@@ -15,8 +15,19 @@ protocol DataComponentProtocol {
 final class DataComponent : Component<EmptyDependency>, DataComponentProtocol {
     public var rickAndMortyRepository: RickAndMortyRepository {
         RickAndMortyRepository(
-            rickAndMortyApi: rickAndMortyApi
+            api: rickAndMortyApi,
+            cache: rickAndMortyCache
         )
+    }
+    
+    private var rickAndMortyCache: RickAndMortyCache {
+        RickAndMortyCache(cache: realmService)
+    }
+    
+    private var realmService: RealmService {
+        shared {
+            RealmService()
+        }
     }
     
     private var rickAndMortyApi: RickAndMortyApi {
