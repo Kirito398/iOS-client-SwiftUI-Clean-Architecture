@@ -15,8 +15,8 @@ final class RickAndMortyCache {
         self.cache = cache
     }
     
-    func getCharactersList() throws -> [CharacterDetail] {
-        try cache.loadAll(CharacterObject.self).mapToDomain()
+    func getCharactersList(by filter: CharacterListFilter) throws -> [CharacterDetail] {
+        try cache.loadAll(CharacterObject.self).filter(by: filter).mapToDomain()
     }
     
     func getCharacterDetail(by characterId: Int) throws -> CharacterDetail {

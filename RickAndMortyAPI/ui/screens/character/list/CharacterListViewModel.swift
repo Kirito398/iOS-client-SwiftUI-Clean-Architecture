@@ -17,18 +17,37 @@ class CharacterListViewModel : ViewModel<CharacterListScreenState> {
     }
     
     func refreshCharacterList() {
-        fetchCharacterList(isForce: true)
+        fetchCharacterList(
+            with: viewState.filter,
+            isForce: true
+        )
     }
     
     func loadNextPage() {
         if viewState.hasNextPage {
-            fetchCharacterList(by: viewState.currentPage + 1)
+            fetchCharacterList(
+                by: viewState.currentPage + 1,
+                with: viewState.filter
+            )
         }
     }
     
-    private func fetchCharacterList(by pageNumber: Int = 1, isForce: Bool = false) {
+    func search(by name: String) {
+        mutate { state in
+            state.clearCharacterList()
+            state.updateFilter(name: name)
+        }
+        
+        refreshCharacterList()
+    }
+    
+    private func fetchCharacterList(
+        by pageNumber: Int = 1,
+        with filter: CharacterSearchFilter,
+        isForce: Bool = false
+    ) {
         doTask { [weak self] in
-            await self?.interactor.fetchCharacterList(by: pageNumber)
+            await self?.interactor.fetchCharacterList(by: pageNumber, with: filter.mapToDomain())
         } onResult: { [weak self] result in
             self?.updateCharacterListWithPageNumber(
                 by: result.mapToUIModel(),
