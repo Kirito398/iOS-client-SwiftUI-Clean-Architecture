@@ -16,3 +16,13 @@ extension CharacterListFilter {
         return result
     }
 }
+
+extension LocationListFilter {
+    func mapToApi() -> String {
+        var result = ""
+        if !name.isEmpty {
+            result += "&name=\(name)"
+        }
+        return result
+    }
+}

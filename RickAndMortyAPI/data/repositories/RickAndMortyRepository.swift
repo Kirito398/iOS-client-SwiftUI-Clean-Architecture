@@ -40,13 +40,13 @@ struct RickAndMortyRepository {
         }
     }
     
-    func fetchLocationList(by page: Int) async -> Result<LocationList> {
+    func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
         await tryDoWithCaching {
-            try await api.fetchLocationList(by: page).mapToDomain()
+            try await api.fetchLocationList(by: page, with: filter).mapToDomain()
         } saveToCache: { serverData in
             try cache.saveLocationList(serverData.list)
         } loadFromCache: {
-            let cachedData = try cache.getLocationList()
+            let cachedData = try cache.getLocationList(by: filter)
             return LocationList(
                 info: LocationList.Info.defaultValue,
                 list: cachedData

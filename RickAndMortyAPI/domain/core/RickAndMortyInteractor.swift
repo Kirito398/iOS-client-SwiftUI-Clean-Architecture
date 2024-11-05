@@ -22,8 +22,8 @@ struct RickAndMortyInteractor {
         await repository.fetchCharacterDetail(by: id)
     }
     
-    func fetchLocationList(by page: Int) async -> Result<LocationList> {
-        await repository.fetchLocationList(by: page)
+    func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
+        await repository.fetchLocationList(by: page, with: filter)
     }
     
     func fetchLocationDetail(by id: Int) async -> Result<LocationDetail> {

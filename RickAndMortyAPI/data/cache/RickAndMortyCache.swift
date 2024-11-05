@@ -23,8 +23,8 @@ final class RickAndMortyCache {
         try cache.load(CharacterObject.self, forPrimaryKey: characterId).mapToDomain()
     }
     
-    func getLocationList() throws -> [LocationDetail] {
-        try cache.loadAll(LocationObject.self).mapToDomain()
+    func getLocationList(by filter: LocationListFilter) throws -> [LocationDetail] {
+        try cache.loadAll(LocationObject.self).filter(by: filter).mapToDomain()
     }
     
     func getLocationDetail(by locationId: Int) throws -> LocationDetail {
