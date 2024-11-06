@@ -21,10 +21,10 @@ class HttpClient {
         session = URLSession(configuration: config)
     }
     
-    func load<T : Decodable>(from pathUrl: String) async throws -> T {
+    func load<T : Decodable>(_ type: T.Type, from pathUrl: String) async throws -> T {
         if let url = URL(string: baseUrl + pathUrl) {
             do {
-                let data = try await loadData(from: url)
+                let (data, _) = try await session.data(from: url)
                 let result = try JSONDecoder().decode(T.self, from: data)
                 return result
             } catch {
@@ -37,7 +37,7 @@ class HttpClient {
     
     func loadData(from url: URL) async throws -> Data {
         do {
-            let (data, _) = try await session.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
             return data
         } catch {
             throw handleError(error)

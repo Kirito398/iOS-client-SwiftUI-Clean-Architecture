@@ -18,7 +18,7 @@ struct RickAndMortyRepository {
     
     func fetchCharacterList(by page: Int, with filter: CharacterListFilter) async -> Result<CharacterList> {
         await tryDoWithCaching {
-            try await fetchCharacterListFromServer(by: page, with: filter)
+            try await api.fetchCharacterList(by: page, with: filter)
         } saveToCache: { serverData in
             try cache.saveCharacterList(serverData.list)
         } loadFromCache: {
@@ -32,7 +32,7 @@ struct RickAndMortyRepository {
     
     func fetchCharacterDetail(by id: Int) async -> Result<CharacterDetail> {
         await tryDoWithCaching {
-            try await fetchCharacterDetailFromServer(by: id)
+            try await api.fetchCharacterDetail(by: id)
         } saveToCache: { serverData in
             try cache.saveCharaterDetail(serverData)
         } loadFromCache: {
@@ -42,7 +42,7 @@ struct RickAndMortyRepository {
     
     func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
         await tryDoWithCaching {
-            try await api.fetchLocationList(by: page, with: filter).mapToDomain()
+            try await api.fetchLocationList(by: page, with: filter)
         } saveToCache: { serverData in
             try cache.saveLocationList(serverData.list)
         } loadFromCache: {
@@ -56,48 +56,11 @@ struct RickAndMortyRepository {
     
     func fetchLocationDetail(by id: Int) async -> Result<LocationDetail> {
         await tryDoWithCaching {
-            try await api.fetchLocationDetail(by: id).mapToDomain()
+            try await api.fetchLocationDetail(by: id)
         } saveToCache: { serverData in
             try cache.saveLocationDetail(serverData)
         } loadFromCache: {
             try cache.getLocationDetail(by: id)
-        }
-    }
-    
-    private func fetchCharacterListFromServer(by page: Int, with filter: CharacterListFilter) async throws -> CharacterList {
-        let response = try await api.fetchCharacterList(by: page, with: filter)
-        let characterList: [CharacterDetail] = try await loadCharacterAvatar(for: response.list)
-        
-        return CharacterList(
-            info: response.info.mapToDomain(),
-            list: characterList
-        )
-    }
-    
-    private func fetchCharacterDetailFromServer(by id: Int) async throws -> CharacterDetail {
-        let response = try await api.fetchCharacterDetail(by: id)
-        let avatar = try await loadCharacterAvatar(by: response.image)
-        return try response.mapToDomain(avatar: avatar)
-    }
-    
-    private func loadCharacterAvatar(for list: [CharacterListResponse.Character]) async throws -> [CharacterDetail] {
-        var characterList: [CharacterDetail] = []
-        
-        for item in list {
-            let avatar = try await loadCharacterAvatar(by: item.image)
-            let characterDetail = try item.mapToDomain(avatar: avatar)
-            characterList.append(characterDetail)
-        }
-        
-        return characterList
-    }
-    
-    private func loadCharacterAvatar(by stringURL: String) async throws -> CharacterDetail.CharacterAvatar {
-        if let imageURL = URL(string: stringURL) {
-            let response = try await api.loadImageData(by: imageURL)
-            return CharacterDetail.CharacterAvatar.cached(imageData: response)
-        } else {
-            return CharacterDetail.CharacterAvatar.failed
         }
     }
     
