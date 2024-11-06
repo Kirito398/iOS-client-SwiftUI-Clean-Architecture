@@ -54,6 +54,13 @@ extension [CharacterObject] {
             item.mapToDomain()
         }
     }
+    
+    func filter(by filter: CharacterListFilter) -> Self {
+        self.filter { item in
+            let name = filter.name.isEmpty || item.name.contains(filter.name)
+            return name
+        }
+    }
 }
 
 extension CharacterObject {

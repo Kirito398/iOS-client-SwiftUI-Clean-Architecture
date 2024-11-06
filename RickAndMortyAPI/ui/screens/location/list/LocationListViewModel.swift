@@ -16,18 +16,37 @@ class LocationListViewModel : ViewModel<LocationListScreenState> {
     }
     
     func refreshLocationList() {
-        fetchLocationList(isForce: true)
+        fetchLocationList(
+            with: viewState.filter,
+            isForce: true
+        )
     }
     
     func loadNextPage() {
         if viewState.hasNextPage {
-            fetchLocationList(by: viewState.currentPage + 1)
+            fetchLocationList(
+                by: viewState.currentPage + 1,
+                with: viewState.filter
+            )
         }
     }
     
-    private func fetchLocationList(by page: Int = 1, isForce: Bool = false) {
+    func search(by name: String) {
+        mutate { state in
+            state.clearLocationList()
+            state.updateFilter(name: name)
+        }
+        
+        refreshLocationList()
+    }
+    
+    private func fetchLocationList(
+        by page: Int = 1,
+        with filter: LocationSearchFilter,
+        isForce: Bool = false
+    ) {
         doTask { [weak self] in
-            await self?.interactor.fetchLocationList(by: page)
+            await self?.interactor.fetchLocationList(by: page, with: filter.mapToDomain())
         } onResult: { [weak self] result in
             self?.updateLocationListWithCurrentPage(
                 result.mapToUiModel(),

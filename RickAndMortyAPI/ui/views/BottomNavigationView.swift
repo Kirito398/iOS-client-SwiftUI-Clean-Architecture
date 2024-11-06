@@ -49,10 +49,11 @@ struct BottomNavigationView<Menu : BottomNavigationMenuItem, Content : View>: Vi
         TabView(selection: $selectedItemIndex) {
             ForEach(Array(menuList.enumerated()), id: \.offset) { index, menu in
                 content(menu)
-                .tag(index)
+                    .tag(index)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
+        .ignoresSafeArea(edges: .bottom)
     }
     
     private var bottomMenu: some View {

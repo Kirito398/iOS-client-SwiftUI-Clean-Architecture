@@ -25,13 +25,21 @@ struct LocationListScreen: AppView {
     }
     
     var content: some View {
-        if viewState.locationList.isEmpty {
-            emptyList
-                .onAppear() {
-                    viewModel.refreshLocationList()
+        VStack(spacing: .zero) {
+            SearchBar() { value in
+                withAnimation {
+                    viewModel.search(by: value)
                 }
-        } else {
-            locationList
+            }
+            
+            if viewState.locationList.isEmpty {
+                emptyList
+                    .onAppear() {
+                        viewModel.refreshLocationList()
+                    }
+            } else {
+                locationList
+            }
         }
     }
     

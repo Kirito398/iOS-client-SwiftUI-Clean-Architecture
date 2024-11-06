@@ -13,6 +13,7 @@ struct CharacterListScreenState : ViewState {
     private(set) var characterList: [CharacterDetailUI] = []
     private(set) var currentPage: Int = 0
     private(set) var pagesNumber: Int = 1
+    private(set) var filter: CharacterSearchFilter = CharacterSearchFilter.defaultValue
     
     var hasNextPage: Bool {
         currentPage < pagesNumber
@@ -20,6 +21,10 @@ struct CharacterListScreenState : ViewState {
 }
 
 extension CharacterListScreenState {
+    mutating func clearCharacterList() {
+        self.characterList.removeAll()
+    }
+    
     mutating func updateCharacterList(_ list: [CharacterDetailUI]) {
         self.characterList = list
     }
@@ -30,5 +35,9 @@ extension CharacterListScreenState {
     
     mutating func setCurrentPage(_ currentPage: Int) {
         self.currentPage = currentPage
+    }
+    
+    mutating func updateFilter(name: String) {
+        self.filter = CharacterSearchFilter(name: name)
     }
 }

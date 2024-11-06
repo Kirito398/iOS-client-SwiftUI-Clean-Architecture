@@ -22,6 +22,13 @@ extension [LocationObject] {
             item.mapToDomain()
         }
     }
+    
+    func filter(by filter: LocationListFilter) -> Self {
+        return self.filter { item in
+            let name = filter.name.isEmpty || item.name.contains(filter.name)
+            return name
+        }
+    }
 }
 
 extension LocationObject {

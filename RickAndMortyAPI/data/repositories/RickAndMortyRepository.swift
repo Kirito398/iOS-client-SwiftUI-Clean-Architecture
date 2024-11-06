@@ -16,13 +16,13 @@ struct RickAndMortyRepository {
         self.cache = cache
     }
     
-    func fetchCharacterList(by page: Int) async -> Result<CharacterList> {
+    func fetchCharacterList(by page: Int, with filter: CharacterListFilter) async -> Result<CharacterList> {
         await tryDoWithCaching {
-            try await fetchCharacterListFromServer(by: page)
+            try await api.fetchCharacterList(by: page, with: filter)
         } saveToCache: { serverData in
             try cache.saveCharacterList(serverData.list)
         } loadFromCache: {
-            let cachedData = try cache.getCharactersList()
+            let cachedData = try cache.getCharactersList(by: filter)
             return CharacterList(
                 info: CharacterList.Info.defaultValue,
                 list: cachedData
@@ -32,7 +32,7 @@ struct RickAndMortyRepository {
     
     func fetchCharacterDetail(by id: Int) async -> Result<CharacterDetail> {
         await tryDoWithCaching {
-            try await fetchCharacterDetailFromServer(by: id)
+            try await api.fetchCharacterDetail(by: id)
         } saveToCache: { serverData in
             try cache.saveCharaterDetail(serverData)
         } loadFromCache: {
@@ -40,13 +40,13 @@ struct RickAndMortyRepository {
         }
     }
     
-    func fetchLocationList(by page: Int) async -> Result<LocationList> {
+    func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
         await tryDoWithCaching {
-            try await api.fetchLocationList(by: page).mapToDomain()
+            try await api.fetchLocationList(by: page, with: filter)
         } saveToCache: { serverData in
             try cache.saveLocationList(serverData.list)
         } loadFromCache: {
-            let cachedData = try cache.getLocationList()
+            let cachedData = try cache.getLocationList(by: filter)
             return LocationList(
                 info: LocationList.Info.defaultValue,
                 list: cachedData
@@ -56,43 +56,11 @@ struct RickAndMortyRepository {
     
     func fetchLocationDetail(by id: Int) async -> Result<LocationDetail> {
         await tryDoWithCaching {
-            try await api.fetchLocationDetail(by: id).mapToDomain()
+            try await api.fetchLocationDetail(by: id)
         } saveToCache: { serverData in
             try cache.saveLocationDetail(serverData)
         } loadFromCache: {
             try cache.getLocationDetail(by: id)
-        }
-    }
-    
-    private func fetchCharacterListFromServer(by page: Int) async throws -> CharacterList {
-        let response = try await api.fetchCharacterList(by: page)
-        
-        var characterList: [CharacterDetail] = []
-        
-        for item in response.list {
-            let avatar = try await loadCharacterAvatar(by: item.image)
-            let characterDetail = try item.mapToDomain(avatar: avatar)
-            characterList.append(characterDetail)
-        }
-        
-        return CharacterList(
-            info: response.info.mapToDomain(),
-            list: characterList
-        )
-    }
-    
-    private func fetchCharacterDetailFromServer(by id: Int) async throws -> CharacterDetail {
-        let response = try await api.fetchCharacterDetail(by: id)
-        let avatar = try await loadCharacterAvatar(by: response.image)
-        return try response.mapToDomain(avatar: avatar)
-    }
-    
-    private func loadCharacterAvatar(by stringURL: String) async throws -> CharacterDetail.CharacterAvatar {
-        if let imageURL = URL(string: stringURL) {
-            let response = try await api.loadImageData(by: imageURL)
-            return CharacterDetail.CharacterAvatar.cached(imageData: response)
-        } else {
-            return CharacterDetail.CharacterAvatar.failed
         }
     }
     
@@ -108,7 +76,7 @@ struct RickAndMortyRepository {
             trySaveToCache(saveToCache, data: result)
             return Result.Success(data: result)
         } catch {
-            let failure = error as? FailureError ?? FailureError.unknown(error: error.localizedDescription)
+            let failure = handleError(error)
             let cachedData = tryLoadFromCache(loadFromCache)
             return Result.Failure(data: cachedData, error: failure)
         }
@@ -118,7 +86,7 @@ struct RickAndMortyRepository {
         do {
             try saveBlock(data)
         } catch {
-            handleError(error)
+            _ = handleError(error)
         }
     }
     
@@ -126,12 +94,13 @@ struct RickAndMortyRepository {
         do {
             return try loadBlock()
         } catch {
-            handleError(error)
+            _ = handleError(error)
             return nil
         }
     }
     
-    private func handleError(_ error: Error) {
+    private func handleError(_ error: Error) -> FailureError {
         error.localizedDescription.errorLog()
+        return error as? FailureError ?? FailureError.unknown(error: error.localizedDescription)
     }
 }

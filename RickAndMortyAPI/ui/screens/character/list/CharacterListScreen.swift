@@ -15,6 +15,9 @@ struct CharacterListScreen: AppView {
     private var geometryEffectNamespace: Namespace.ID?
     private var onItemTapListener: ((CharacterDetailUI) -> Void)?
     
+    @State
+    private var text: String = ""
+    
     init(
         viewModel: CharacterListViewModel,
         geometryEffectNamespace: Namespace.ID? = nil,
@@ -26,13 +29,23 @@ struct CharacterListScreen: AppView {
     }
     
     var content: some View {
-        if viewState.characterList.isEmpty {
-            emptyList
-                .onAppear() {
-                    viewModel.refreshCharacterList()
+        VStack(spacing: .zero) {
+            SearchBar(
+                label: viewState.filter.name
+            ) { inputText in
+                withAnimation {
+                    viewModel.search(by: inputText)
                 }
-        } else {
-            characterList
+            }
+            
+            if viewState.characterList.isEmpty {
+                emptyList
+                    .onAppear() {
+                        viewModel.refreshCharacterList()
+                    }
+            } else {
+                characterList
+            }
         }
     }
     
