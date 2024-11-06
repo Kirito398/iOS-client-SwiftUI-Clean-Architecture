@@ -9,9 +9,34 @@ import SwiftUI
 
 @main
 struct RickAndMortyAPIApp: App {
+    //@ObservedObject var router: Router
+    private var rootComponent: RootComponent
+    
+    init() {
+        registerProviderFactories()
+        rootComponent = RootComponent()
+        //router = rootComponent.uiComponent.navigationRouter
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreen()
+                .appTheme()
+//            NavigationStack(path: $router.navPath) {
+//                CharacterListScreen(viewModel: rootComponent.uiComponent.characterListViewModel)
+//                    .navigationDestination(for: Destination.self) { destination in
+//                        switch destination {
+//                        case .CharacterDetail(let id): 
+//                            CharacterDetailScreen(
+//                                viewModel: CharacterDetailViewModel(
+//                                    interactor: rootComponent.domainComponent.rickAndMortyInteractor,
+//                                    characterId: id
+//                                )
+//                            )
+//                        }
+//                    }
+//            }
         }
+        //.environmentObject(router)
     }
 }
