@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ui
 
 @main
 struct RickAndMortyAPIApp: App {

@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct CharacterListFilter {
-    let name: String
+public struct CharacterListFilter {
+    public let name: String
+    
+    public init(name: String) {
+        self.name = name
+    }
 }
 
 extension CharacterListFilter {

@@ -7,42 +7,42 @@
 
 import Foundation
 
-struct CharacterDetail : Identifiable {
-    let id: Int
-    let name: String
-    let status: Status
-    let species: String
-    let type: String
-    let gender: Gender
-    let image: String
-    let avatar: CharacterAvatar
-    let origin: Origin
-    let location: Location
+public struct CharacterDetail : Identifiable {
+    public let id: Int
+    public let name: String
+    public let status: Status
+    public let species: String
+    public let type: String
+    public let gender: Gender
+    public let image: String
+    public let avatar: CharacterAvatar
+    public let origin: Origin
+    public let location: Location
     
-    enum Origin {
+    public enum Origin {
         case unknown
         case named(id: Int, name: String)
     }
     
-    enum Location {
+    public enum Location {
         case unknown
         case named(id: Int, name: String)
     }
     
-    enum Status {
+    public enum Status {
         case unknown
         case alive
         case dead
     }
     
-    enum Gender {
+    public enum Gender {
         case unknown
         case female
         case male
         case genderless
     }
     
-    enum CharacterAvatar {
+    public enum CharacterAvatar {
         case cached(imageData: Data)
         case failed
     }

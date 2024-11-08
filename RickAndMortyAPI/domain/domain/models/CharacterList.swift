@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct CharacterList {
-    let info: Info
-    let list: [CharacterDetail]
+public struct CharacterList {
+    public let info: Info
+    public let list: [CharacterDetail]
     
-    struct Info {
-        let count: Int
-        let pages: Int
-        let next: String
-        let prev: String
+    public struct Info {
+        public let count: Int
+        public let pages: Int
+        public let next: String
+        public let prev: String
     }
 }
 

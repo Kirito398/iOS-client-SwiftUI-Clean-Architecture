@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct LocationList {
-    let info: Info
-    let list: [LocationDetail]
+public struct LocationList {
+    public let info: Info
+    public let list: [LocationDetail]
     
-    struct Info {
-        let pages: Int
-        let next: String
-        let prev: String
+    public struct Info {
+        public let pages: Int
+        public let next: String
+        public let prev: String
     }
 }
 

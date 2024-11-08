@@ -7,26 +7,26 @@
 
 import Foundation
 
-struct RickAndMortyInteractor {
-    private let repository: RickAndMortyRepository
+public struct RickAndMortyInteractor {
+    private let repository: RickAndMortyRepositoryProtocol
     
-    init(repository: RickAndMortyRepository) {
+    init(repository: RickAndMortyRepositoryProtocol) {
         self.repository = repository
     }
     
-    func fetchCharacterList(by page: Int, with filter: CharacterListFilter) async -> Result<CharacterList> {
+    public func fetchCharacterList(by page: Int, with filter: CharacterListFilter) async -> Result<CharacterList> {
         await repository.fetchCharacterList(by: page, with: filter)
     }
     
-    func fetchCharacterDetail(by id: Int) async -> Result<CharacterDetail> {
+    public func fetchCharacterDetail(by id: Int) async -> Result<CharacterDetail> {
         await repository.fetchCharacterDetail(by: id)
     }
     
-    func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
+    public func fetchLocationList(by page: Int, with filter: LocationListFilter) async -> Result<LocationList> {
         await repository.fetchLocationList(by: page, with: filter)
     }
     
-    func fetchLocationDetail(by id: Int) async -> Result<LocationDetail> {
+    public func fetchLocationDetail(by id: Int) async -> Result<LocationDetail> {
         await repository.fetchLocationDetail(by: id)
     }
 }

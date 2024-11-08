@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct LocationListFilter {
-    let name: String
+public struct LocationListFilter {
+    public let name: String
+    
+    public init(name: String) {
+        self.name = name
+    }
 }

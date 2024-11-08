@@ -8,7 +8,7 @@
 import Foundation
 
 extension Array where Element : Equatable {
-    func removeDuplicates() -> [Element] {
+    public func removeDuplicates() -> [Element] {
         var result = [Element]()
         
         for item in self {
@@ -20,7 +20,7 @@ extension Array where Element : Equatable {
         return result
     }
     
-    func addWithoutDuplicates(_ list: [Element]) -> [Element] {
+    public func addWithoutDuplicates(_ list: [Element]) -> [Element] {
         var newList = self
         
         for item in list {

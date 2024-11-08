@@ -9,11 +9,11 @@ import os
 import Foundation
 
 extension String {
-    func debugLog() {
+    public func debugLog() {
         Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Main Debug").debug("\(self)")
     }
     
-    func errorLog() {
+    public func errorLog() {
         Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Main Error").error("\(self)")
     }
 }

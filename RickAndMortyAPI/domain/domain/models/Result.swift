@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Result<ResultType> {
+public enum Result<ResultType> {
     case Success(data: ResultType)
     case Failure(data: ResultType? = nil, error: FailureError)
 }
